@@ -2,7 +2,7 @@
   "name": "portfolio-website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://olenashereiko.github.io/portfolio",
+  "homepage": "https://os136.github.io/portfolio",
   "dependencies": {
     "@types/node": "^16.18.68",
     "@types/react": "^18.2.45",
