@@ -3,13 +3,13 @@ import { ContentData } from "../types";
 export const portfolioData: ContentData = {
   personal: {
     name: "Olena Shereiko",
-    title: "Software Developer",
-    email: "olenashereiko@gmail.com", // TODO: Update with your actual email
-    phone: "+46 (73) 566-21-22", // TODO: Update with your actual phone
-    location: "Stockholm, Sweden", // TODO: Update with your actual location
-    website: "https://your-website.com", // TODO: Update with your actual website
-    github: "https://github.com/your-username", // TODO: Update with your actual GitHub
-    linkedin: "https://linkedin.com/in/your-profile", // TODO: Update with your actual LinkedIn
+    title: "Full-Stack Developer",
+    email: "olenashereiko@gmail.com", 
+    phone: "+46 (73) 566-21-22",
+    location: "Stockholm, Sweden",
+    website: "https://os136.github.io/portfolio",
+    github: "https://github.com/OS136",
+    linkedin: "https://www.linkedin.com/in/olena-shereiko-83919a1a8",
     summary:
       "Passionate software developer with expertise in modern web technologies. I love creating innovative solutions and bringing ideas to life through code.",
   },
@@ -82,8 +82,8 @@ export const portfolioData: ContentData = {
       longDescription:
         "This project showcases my work and experience through an interactive, responsive design. Features include dynamic GitHub repository integration, smooth animations, and mobile-first design principles.",
       technologies: ["React", "TypeScript", "Tailwind CSS", "GitHub API"],
-      githubUrl: "https://github.com/your-username/portfolio",
-      liveUrl: "https://your-username.github.io/portfolio",
+      githubUrl: "https://github.com/OS136/portfolio",
+      liveUrl: "https://OS136.github.io/portfolio",
       featured: true,
       category: "web",
       status: "completed",
@@ -96,7 +96,7 @@ export const portfolioData: ContentData = {
       longDescription:
         "Built a comprehensive task management system with user authentication, real-time collaboration features, and responsive design. Implemented drag-and-drop functionality and automated notifications.",
       technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
-      githubUrl: "https://github.com/your-username/task-manager",
+      githubUrl: "https://github.com/OS136/task-manager",
       featured: true,
       category: "web",
       status: "completed",
@@ -107,8 +107,8 @@ export const portfolioData: ContentData = {
       description:
         "A weather application with location-based forecasts and beautiful visualizations",
       technologies: ["JavaScript", "Chart.js", "Weather API"],
-      githubUrl: "https://github.com/your-username/weather-app",
-      liveUrl: "https://your-username.github.io/weather-app",
+      githubUrl: "https://github.com/OS136/weather-app",
+      liveUrl: "https://OS136.github.io/weather-app",
       featured: false,
       category: "web",
       status: "completed",
@@ -118,19 +118,19 @@ export const portfolioData: ContentData = {
   socialLinks: [
     {
       platform: "GitHub",
-      url: "https://github.com/your-username", // TODO: Update with your GitHub
+      url: "https://github.com/OS136", // TODO: Update with your GitHub
       icon: "github",
       label: "View my code",
     },
     {
       platform: "LinkedIn",
-      url: "https://linkedin.com/in/your-profile", // TODO: Update with your LinkedIn
+      url: "https://www.linkedin.com/in/olena-shereiko-83919a1a8", // TODO: Update with your LinkedIn
       icon: "linkedin",
       label: "Connect with me",
     },
     {
       platform: "Email",
-      url: "mailto:your.email@example.com", // TODO: Update with your email
+      url: "mailto:olenashereiko@gmail.com", // TODO: Update with your email
       icon: "mail",
       label: "Send me an email",
     },
@@ -138,4 +138,4 @@ export const portfolioData: ContentData = {
 };
 
 // GitHub username for fetching repositories dynamically
-export const GITHUB_USERNAME = "olenashereiko";
+export const GITHUB_USERNAME = "OS136";
