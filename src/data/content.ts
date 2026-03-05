@@ -81,8 +81,8 @@ export const portfolioData: ContentData = {
     { name: "ASP.NET", category: "backend", level: "advanced" },
     { name: "REST API", category: "backend", level: "intermediate" },
     { name: "Git", category: "tools", level: "advanced" },
-    { name: "Figma", category: "design", level: "intermediate" },
-    { name: "Agile", category: "methodology", level: "advanced" },
+    { name: "Figma", category: "tools", level: "intermediate" },
+    { name: "Agile", category: "other", level: "advanced" },
   ],
 
   projects: [
