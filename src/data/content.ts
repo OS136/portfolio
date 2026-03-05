@@ -80,6 +80,7 @@ export const portfolioData: ContentData = {
     { name: "Angular", category: "frontend", level: "advanced" },
     { name: "ASP.NET", category: "backend", level: "advanced" },
     { name: "REST API", category: "backend", level: "intermediate" },
+    { name: "SQLite3", category: "database", level: "advanced" },
     { name: "Git", category: "tools", level: "advanced" },
     { name: "Figma", category: "tools", level: "intermediate" },
     { name: "Agile", category: "other", level: "advanced" },
