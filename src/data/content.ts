@@ -41,7 +41,8 @@ export const portfolioData: ContentData = {
   education: [
     {
       id: "edu-1",
-      institution: "EC Education /n (Higher Vocational Education)",
+      institution: "EC Education",
+      subtitle: "Higher Vocational Education",
       degree: "Frontend Developer",
       field: "Web Development",
       startDate: "2024-08",

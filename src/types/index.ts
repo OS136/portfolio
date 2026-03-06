@@ -24,6 +24,7 @@ export interface Experience {
 export interface Education {
   id: string;
   institution: string;
+  subtitle?: string;
   degree: string;
   field: string;
   startDate: string;

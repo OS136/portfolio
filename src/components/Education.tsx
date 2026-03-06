@@ -30,6 +30,11 @@ const Education: React.FC = () => {
                 <p className="text-lg text-blue-600 font-medium mb-1">
                   {edu.institution}
                 </p>
+                {edu.subtitle && (
+                  <p className="text-sm text-gray-500 font-medium mb-1">
+                    {edu.subtitle}
+                  </p>
+                )}
                 <p className="text-gray-600 mb-2">{edu.field}</p>
               </div>
               <div className="lg:text-right">
