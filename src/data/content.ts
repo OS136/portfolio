@@ -96,14 +96,14 @@ export const portfolioData: ContentData = {
   projects: [
     {
       id: "proj-1",
-      title: "Portfolio Website",
+      title: "Freaky Fashion React",
       description:
-        "A responsive portfolio website built with React and Tailwind CSS",
+        "A responsive e-commerce website built with React and Tailwind CSS",
       longDescription:
-        "This project showcases my work and experience through an interactive, responsive design. Features include dynamic GitHub repository integration, smooth animations, and mobile-first design principles.",
+        "This project showcases my work and experience through an interactive, responsive design. Features include dynamic GitHub repository integration, and mobile-first design principles.",
       technologies: ["React", "TypeScript", "Tailwind CSS", "GitHub API"],
-      githubUrl: "https://github.com/OS136/portfolio",
-      liveUrl: "https://os136.github.io/portfolio",
+      githubUrl: "https://github.com/OS136/freaky-fashion-react",
+      liveUrl: "https://os136.github.io/freaky-fashion-react",
       featured: true,
       category: "web",
       status: "completed",
