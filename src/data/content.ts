@@ -27,7 +27,13 @@ export const portfolioData: ContentData = {
         "Collaborating in agile development teams to deliver high-quality solutions",
         "Gaining hands-on experience with full-stack development practices",
       ],
-      technologies: ["JavaScript", "TypeScript", "React", "Angular", "ASP.NET", "REST API"],
+      technologies: [
+        "JavaScript",
+        "TypeScript",
+        "Angular",
+        "ASP.NET",
+        "REST API",
+      ],
       location: "Stockholm, Sweden (Hybrid)",
     },
   ],
@@ -35,7 +41,7 @@ export const portfolioData: ContentData = {
   education: [
     {
       id: "edu-1",
-      institution: "EC Education Yrkeshögskolan",
+      institution: "EC Education /n (Higher Vocational Education)",
       degree: "Frontend Developer",
       field: "Web Development",
       startDate: "2024-08",
