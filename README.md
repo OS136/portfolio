@@ -1,10 +1,10 @@
-# React Resume Portfolio
+# React Portfolio
 
 A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS. Features dynamic GitHub repository integration, smooth animations, and mobile-first design.
 
 ## 🚀 Live Demo
 
-Visit the live site: [https://your-username.github.io/resume](https://your-username.github.io/resume)
+Visit the live site: [https://your-username.github.io/portfolio](https://your-username.github.io/portfolio)
 
 ## ✨ Features
 
@@ -30,7 +30,7 @@ Visit the live site: [https://your-username.github.io/resume](https://your-usern
 ## 🏗️ Project Structure
 
 ```
-resume/
+portfolio/
 ├── public/                 # Static assets
 ├── src/
 │   ├── components/        # React components
@@ -67,7 +67,7 @@ resume/
 1. Fork this repository to your GitHub account
 2. Clone your fork:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/resume.git
+   git clone https://github.com/OS136/portfolio.git
    cd resume
    ```
 
@@ -224,6 +224,3 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-**Happy coding!** 🚀
-
-> Remember to update all placeholder content and URLs with your actual information before deploying.
