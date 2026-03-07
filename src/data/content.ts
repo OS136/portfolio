@@ -80,7 +80,7 @@ export const portfolioData: ContentData = {
   ],
 
   skills: [
-    { name: "HTML5/CSS3", category: "frontend", level: "expert" },
+    { name: "HTML/CSS", category: "frontend", level: "expert" },
     { name: "JavaScript (ES6+)", category: "frontend", level: "expert" },
     { name: "TypeScript", category: "frontend", level: "advanced" },
     { name: "React", category: "frontend", level: "advanced" },
