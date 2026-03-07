@@ -72,8 +72,8 @@ const Projects: React.FC = () => {
         </div>
       )}
 
-      {/* Project Categories Filter */}
-      {/* {portfolioData.projects.length > 0 && (
+      {/* Project Categories Filter - HIDDEN */}
+      {false && portfolioData.projects.length > 0 && (
         <div className="flex flex-wrap justify-center gap-2 mb-8">
           {categories.map((category) => (
             <button
