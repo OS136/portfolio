@@ -8,7 +8,7 @@ export const portfolioData: ContentData = {
     phone: "+46 (73) 566-21-22",
     location: "Stockholm, Sweden",
     website: "https://os136.github.io/portfolio",
-    github: "https://github.com/OS136",
+    github: "https://github.com/OS136?tab=repositories",
     linkedin: "https://www.linkedin.com/in/olena-shereiko-83919a1a8",
     summary:
       "I'm a passionate developer with a strong interest in innovative automotive software development, with experience in responsive design, JavaScript frameworks, and API integration. I really enjoy collaborating in teams, learning new technologies, and continuously improving my coding skills.",
@@ -209,7 +209,7 @@ export const portfolioData: ContentData = {
   socialLinks: [
     {
       platform: "GitHub",
-      url: "https://github.com/OS136",
+      url: "https://github.com/OS136?tab=repositories",
       icon: "github",
       label: "View my code",
     },
@@ -229,4 +229,4 @@ export const portfolioData: ContentData = {
 };
 
 // GitHub username for fetching repositories dynamically
-export const GITHUB_USERNAME = "OS136";
+export const GITHUB_USERNAME = "OS136?tab=repositories";
