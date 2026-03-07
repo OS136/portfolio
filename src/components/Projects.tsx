@@ -89,7 +89,7 @@ const Projects: React.FC = () => {
             </button>
           ))}
         </div>
-      )} */}
+      )}
 
       {/* Portfolio Projects Grid */}
       {filteredProjects.length > 0 && (

@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 
 ## 🚀 Live Demo
 
-Visit the live site: [https://your-username.github.io/portfolio](https://your-username.github.io/portfolio)
+Visit the live site: [https://os136.github.io/portfolio](https://your-username.github.io/portfolio)
 
 ## ✨ Features
 
