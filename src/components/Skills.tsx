@@ -69,32 +69,33 @@ const Skills: React.FC = () => {
       subtitle="The tools and technologies I work with to bring ideas to life"
       background="gray"
     >
-      {/* Category Filter */}
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
-        {categories.map((category) => (
-          <button
-            key={category.key}
-            onClick={() => setSelectedCategory(category.key)}
-            className={`flex items-center px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ${
-              selectedCategory === category.key
-                ? "bg-primary-600 text-white shadow-lg transform scale-105"
-                : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 hover:shadow-md"
-            }`}
-          >
-            <span className="mr-2 text-lg">{category.icon}</span>
-            {category.label}
-            <span className="ml-2 text-xs opacity-75">
-              (
-              {selectedCategory === category.key
-                ? filteredSkills.length
-                : category.key === "all"
-                  ? skills.length
-                  : skills.filter((s) => s.category === category.key).length}
-              )
-            </span>
-          </button>
-        ))}
-      </div>
+      {/* HIDE Category Filter */}
+   
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((category) => (
+            <button
+              key={category.key}
+              onClick={() => setSelectedCategory(category.key)}
+              className={`flex items-center px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ${
+                selectedCategory === category.key
+                  ? "bg-primary-600 text-white shadow-lg transform scale-105"
+                  : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 hover:shadow-md"
+              }`}
+            >
+              <span className="mr-2 text-lg">{category.icon}</span>
+              {category.label}
+              <span className="ml-2 text-xs opacity-75">
+                (
+                {selectedCategory === category.key
+                  ? filteredSkills.length
+                  : category.key === "all"
+                    ? skills.length
+                    : skills.filter((s) => s.category === category.key).length}
+                )
+              </span>
+            </button>
+          ))}
+        </div>
 
       {/* Skills Grid */}
       {filteredSkills.length > 0 ? (
