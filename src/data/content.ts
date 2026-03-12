@@ -11,7 +11,7 @@ export const portfolioData: ContentData = {
     github: "https://github.com/OS136?tab=repositories",
     linkedin: "https://www.linkedin.com/in/olena-shereiko-83919a1a8",
     summary:
-      "I'm a passionate developer with a strong interest in innovative automotive software development, with experience in responsive design, JavaScript frameworks, and API integration. I really enjoy collaborating in teams, learning new technologies, and continuously improving my coding skills.",
+       "I’m a passionate developer with a strong interest in AI and innovative software solutions. I have experience with responsive design, JavaScript frameworks, and API integration. I enjoy collaborating in team environments, learning new technologies, and continuously improving my development skills.",
   },
 
   experiences: [
