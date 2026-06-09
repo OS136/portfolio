@@ -11,7 +11,7 @@ export const portfolioData: ContentData = {
     github: "https://github.com/OS136?tab=repositories",
     linkedin: "https://www.linkedin.com/in/olena-shereiko-83919a1a8",
     summary:
-       "I’m a passionate developer with a strong interest in AI and innovative software solutions. I have experience with responsive design, JavaScript frameworks, and API integration. I enjoy collaborating in team environments, learning new technologies, and continuously improving my development skills.",
+      "I’m a passionate developer with a strong interest in AI and innovative software solutions. I have experience with responsive design, JavaScript frameworks, and API integration. I enjoy collaborating in team environments, learning new technologies, and continuously improving my development skills.",
   },
 
   experiences: [
@@ -20,7 +20,7 @@ export const portfolioData: ContentData = {
       company: "AriaSoft Studios",
       position: "Full-stack Developer (Internship)",
       startDate: "2025-11",
-      endDate: null, // Current position
+      endDate: "2026-05",
       description: [
         "Working on innovative automotive software development projects",
         "Developing responsive web applications using modern JavaScript frameworks",
