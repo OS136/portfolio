@@ -53,7 +53,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       "ASP.NET": "bg-purple-100 text-purple-800",
       "REST API": "bg-indigo-100 text-indigo-800",
       "GitHub API": "bg-lime-100 text-lime-800",
-      SQLite3: "bg-blue-100 text-blue-800",
+      SQLite: "bg-blue-100 text-blue-800",
       PostgreSQL: "bg-blue-100 text-blue-800",
       MongoDB: "bg-green-100 text-green-800",
       Git: "bg-red-100 text-red-800",
@@ -67,7 +67,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       "Next.js": "bg-gray-900 text-white",
       Vite: "bg-purple-100 text-purple-800",
       RxJS: "bg-pink-100 text-pink-800",
-      "node.js": "bg-yellow-100 text-violet-800",
       Agile: "bg-amber-200 text-amber-700",
       "Team Collaboration": "bg-rose-100 text-cyan-800",
     };
@@ -85,7 +84,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </span>
         </div>
       )}
-      {project?.imageUrl && liveUrl && (
+      {project?.imageUrl && liveUrl && featured && (
         <a
           href={liveUrl}
           target="_blank"
