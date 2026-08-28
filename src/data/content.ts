@@ -95,6 +95,25 @@ export const portfolioData: ContentData = {
 
   projects: [
     {
+      id: "proj-6",
+      title: "My New Project",
+      description: "Description of the project",
+      technologies: [
+        "Angular",
+        "TypeScript",
+        "Tailwind CSS",
+        "REST API",
+        "SQLite3",
+        "node.js",
+      ],
+      imageUrl: "Countis.png",
+      liveUrl: "https://ariasoftstudios.github.io/simple-accounting/#/login",
+      githubUrl: "https://github.com/OS136/accounting-platform",
+      featured: true,
+      category: "web",
+      status: "completed",
+    },
+    {
       id: "proj-1",
       title: "Freaky Fashion React",
       description:

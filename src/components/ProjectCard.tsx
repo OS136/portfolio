@@ -13,6 +13,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   featured = false,
 }) => {
   // Use project data if available, otherwise use repo data
+
   const title = project?.title || repo?.name || "Untitled Project";
   const description =
     project?.description || repo?.description || "No description available";
@@ -66,6 +67,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       "Next.js": "bg-gray-900 text-white",
       Vite: "bg-purple-100 text-purple-800",
       RxJS: "bg-pink-100 text-pink-800",
+      "node.js": "bg-yellow-100 text-violet-800",
+      Agile: "bg-amber-200 text-amber-700",
+      "Team Collaboration": "bg-rose-100 text-cyan-800",
     };
     return colors[tech] || "bg-gray-100 text-gray-800";
   };
@@ -81,7 +85,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </span>
         </div>
       )}
-
+      {project?.imageUrl && liveUrl && (
+        <a
+          href={liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block mb-4"
+        >
+          <div className="w-full h-48 sm:h-56 overflow-hidden rounded-lg bg-gray-100 flex items-center justify-center">
+            <img
+              src={`${process.env.PUBLIC_URL}/${project.imageUrl}`}
+              alt={`${title} preview`}
+              className="w-full h-full object-contain hover:opacity-90 transition-opacity"
+            />
+          </div>
+        </a>
+      )}
       <div className="flex-1">
         <div className="flex items-start justify-between mb-3">
           <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">

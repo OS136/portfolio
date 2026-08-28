@@ -12,7 +12,7 @@ interface ProjectCarouselProps {
 const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
   projects = [],
   repos = [],
-  autoPlay = true,
+  autoPlay = false,
   autoPlayInterval = 5000,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

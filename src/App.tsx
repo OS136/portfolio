@@ -11,10 +11,10 @@ function App() {
   return (
     <Layout>
       <Hero />
+      <Projects />
       <Experience />
       <Education />
       <Skills />
-      <Projects />
       <Contact />
     </Layout>
   );
