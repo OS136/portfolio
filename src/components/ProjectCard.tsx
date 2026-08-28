@@ -69,6 +69,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       RxJS: "bg-pink-100 text-pink-800",
       Agile: "bg-amber-200 text-amber-700",
       "Team Collaboration": "bg-rose-100 text-cyan-800",
+      Migrations: "bg-emerald-100 text-emerald-800",
+      Insomnia: "bg-orange-100 text-orange-800",
+      "ASP.NET Core": "bg-fuchsia-100 text-fuchsia-800",
+      Swagger: "bg-sky-100 text-sky-800",
+      "SQL Server": "bg-slate-200 text-slate-800",
     };
     return colors[tech] || "bg-gray-100 text-gray-800";
   };

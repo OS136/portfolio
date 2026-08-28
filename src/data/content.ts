@@ -31,7 +31,7 @@ export const portfolioData: ContentData = {
         "JavaScript",
         "TypeScript",
         "Angular",
-        "ASP.NET",
+        "node.js",
         "REST API",
       ],
       location: "Stockholm, Sweden (Hybrid)",
@@ -96,7 +96,7 @@ export const portfolioData: ContentData = {
   projects: [
     {
       id: "proj-6",
-      title: "My New Project",
+      title: "Countis",
       description:
         "A full-stack accounting platform built to manage invoices, expenses, and financial workflows across web and mobile applications.",
       technologies: [
@@ -133,29 +133,29 @@ export const portfolioData: ContentData = {
       category: "web",
       status: "completed",
     },
-    {
-      id: "proj-2",
-      title: "Freaky Fashion Angular",
-      description:
-        "A full-stack e-commerce website built with Angular and Tailwind CSS",
-      longDescription:
-        "This project showcases my work and experience through an interactive, responsive design. Features include dynamic GitHub repository integration, and mobile-first design principles.",
-      technologies: [
-        "Angular",
-        "TypeScript",
-        "Tailwind CSS",
-        "GitHub API",
-        "ASP.NET",
-        "SQLite",
-        "REST API",
-        "Node.js",
-        "Git",
-      ],
-      githubUrl: "https://github.com/OS136/freaky-fashion-angular",
-      featured: true,
-      category: "web",
-      status: "completed",
-    },
+    // {
+    //   id: "proj-2",
+    //   title: "Freaky Fashion Angular",
+    //   description:
+    //     "A full-stack e-commerce website built with Angular and Tailwind CSS",
+    //   longDescription:
+    //     "This project showcases my work and experience through an interactive, responsive design. Features include dynamic GitHub repository integration, and mobile-first design principles.",
+    //   technologies: [
+    //     "Angular",
+    //     "TypeScript",
+    //     "Tailwind CSS",
+    //     "GitHub API",
+    //     "ASP.NET",
+    //     "SQLite",
+    //     "REST API",
+    //     "Node.js",
+    //     "Git",
+    //   ],
+    //   githubUrl: "https://github.com/OS136/freaky-fashion-angular",
+    //   featured: true,
+    //   category: "web",
+    //   status: "completed",
+    // },
     {
       id: "proj-3",
       title: "Retrendo",
@@ -177,27 +177,27 @@ export const portfolioData: ContentData = {
       category: "web",
       status: "completed",
     },
-    {
-      id: "proj-4",
-      title: "Freaky Fashion Angular Backend",
-      description:
-        "A full-stack e-commerce website built with Angular and Tailwind CSS",
-      technologies: [
-        "JavaScript",
-        "TypeScript",
-        "Angular",
-        "ASP.NET",
-        "SQLite",
-        "Tailwind CSS",
-      ],
-      githubUrl: "https://github.com/OS136/freaky-fashion-back-end-1",
-      featured: false,
-      category: "web",
-      status: "completed",
-    },
+    // {
+    //   id: "proj-4",
+    //   title: "Freaky Fashion Angular Backend",
+    //   description:
+    //     "A full-stack e-commerce website built with Angular and Tailwind CSS",
+    //   technologies: [
+    //     "JavaScript",
+    //     "TypeScript",
+    //     "Angular",
+    //     "ASP.NET",
+    //     "SQLite",
+    //     "Tailwind CSS",
+    //   ],
+    //   githubUrl: "https://github.com/OS136/freaky-fashion-back-end-1",
+    //   featured: false,
+    //   category: "web",
+    //   status: "completed",
+    // },
     {
       id: "proj-5",
-      title: "Freaky Fashion Angular Backend 2",
+      title: "Freaky Fashion Angular",
       description:
         "A full-stack e-commerce website built with Angular and Tailwind CSS",
       technologies: [
@@ -208,6 +208,13 @@ export const portfolioData: ContentData = {
         "Docker",
         "SQLite",
         "Tailwind CSS",
+        "Docker",
+        "Migrations",
+        "REST API",
+        "ASP.NET Core",
+        "C#",
+        "SQL Server",
+        "Swagger",
       ],
       githubUrl: "https://github.com/OS136/freaky-fashion-back-end-2",
       featured: false,
