@@ -243,7 +243,7 @@ const Contact: React.FC = () => {
             {/* Download CV Button */}
             <div className="pt-6 border-t border-gray-200">
               <a
-                href={`${process.env.PUBLIC_URL}/Olena_Shereiko_Full_Stack_Developer_CV.pdf`}
+                href={`/portfolio/Olena_Shereiko_Full_Stack_Developer_CV.pdf`}
                 download="Olena_Shereiko_Full_Stack_Developer_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
