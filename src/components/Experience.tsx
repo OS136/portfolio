@@ -117,7 +117,7 @@ const Experience: React.FC = () => {
 
                   {/* Description */}
                   <div className="mb-6">
-                    <ul className="list-disc list-inside space-y-2 text-gray-700">
+                    <ul className="list-disc pl-6 space-y-3 text-gray-700 marker:text-gray-500">
                       {experience.description.map((item, idx) => (
                         <li key={idx} className="leading-relaxed">
                           {item}
