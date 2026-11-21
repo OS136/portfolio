@@ -60,6 +60,13 @@ describe("hero interactive text", () => {
     }
   }
 
+  it("offers the existing PDF resume download in the hero", () => {
+    render(<Hero />);
+    const link = screen.getByRole("link", { name: "Download Resume (PDF)" });
+    expect(link.getAttribute("href")).toBe("/portfolio/Olena_Shereiko_Full_Stack_Developer_CV.pdf");
+    expect(link.getAttribute("download")).toBe("Olena_Shereiko_Full_Stack_Developer_CV.pdf");
+  });
+
   it("moves letters in each requested text and returns them when scrolling", () => {
     const { container } = render(<Hero />);
     expect(screen.getByRole("heading", { level: 1 }).textContent).toContain(

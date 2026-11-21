@@ -101,7 +101,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Action buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up animate-delay-600">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center animate-slide-up animate-delay-600">
             <button onClick={scrollToProjects} className="btn-primary">
               View My Work
               <svg
@@ -135,6 +135,30 @@ const Hero: React.FC = () => {
                 />
               </svg>
             </button>
+
+            <a
+              href="/portfolio/Olena_Shereiko_Full_Stack_Developer_CV.pdf"
+              download="Olena_Shereiko_Full_Stack_Developer_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary"
+            >
+              <svg
+                className="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 10v6m0 0l-4-4m4 4l4-4m-4-4V4m0 0a2 2 0 00-2-2H7a2 2 0 00-2 2v16a2 2 0 002 2h10a2 2 0 002-2V4a2 2 0 00-2-2h-3z"
+                />
+              </svg>
+              Download Resume (PDF)
+            </a>
           </div>
 
           {/* Social links */}

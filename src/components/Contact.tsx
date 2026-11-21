@@ -240,31 +240,6 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Download CV Button */}
-            <div className="pt-6 border-t border-gray-200">
-              <a
-                href={`/portfolio/Olena_Shereiko_Full_Stack_Developer_CV.pdf`}
-                download="Olena_Shereiko_Full_Stack_Developer_CV.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary w-full sm:w-auto"
-              >
-                <svg
-                  className="w-5 h-5 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 10v6m0 0l-4-4m4 4l4-4m-4-4V4m0 0a2 2 0 00-2-2H7a2 2 0 00-2 2v16a2 2 0 002 2h10a2 2 0 002-2V4a2 2 0 00-2-2h-3z"
-                  />
-                </svg>
-                Download Resume (PDF)
-              </a>
-            </div>
           </div>
 
           {/* Contact Form */}
