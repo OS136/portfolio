@@ -10,6 +10,14 @@ describe("hero interactive text", () => {
   beforeEach(() => {
     reducedMotion = false;
     nextFrame = undefined;
+    jest.spyOn(HTMLCanvasElement.prototype, "getContext").mockReturnValue({
+      setTransform: jest.fn(),
+      clearRect: jest.fn(),
+      beginPath: jest.fn(),
+      moveTo: jest.fn(),
+      lineTo: jest.fn(),
+      stroke: jest.fn(),
+    } as unknown as CanvasRenderingContext2D);
     window.matchMedia = jest.fn().mockImplementation(() => ({
       get matches() {
         return reducedMotion;

@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { portfolioData } from "../data/content";
+import HeroBackground from "./HeroBackground";
 import InteractiveText, { getTypingDuration, SWEEP_DURATION, TYPING_INTERVAL, useTextRepulsion } from "./InteractiveText";
 
 const Hero: React.FC = () => {
@@ -35,9 +36,10 @@ const Hero: React.FC = () => {
     <section
       id="hero"
       ref={heroRef}
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 pt-16"
+      className="relative isolate overflow-hidden min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 pt-16"
     >
-      <div className="container-width section-padding text-center">
+      <HeroBackground heroRef={heroRef} />
+      <div className="relative container-width section-padding text-center">
         <div className="animate-fade-in">
           {/* Avatar placeholder */}
           <div className="w-32 h-32 mx-auto mb-8 bg-gradient-to-r from-primary-400 to-primary-600 rounded-full flex items-center justify-center text-white text-4xl font-bold animate-bounce-gentle">
