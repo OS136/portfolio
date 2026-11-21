@@ -37,6 +37,28 @@
   .text-gradient {
     @apply bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent;
   }
+
+  .hero-interactive-word {
+    display: inline-block;
+  }
+
+  .hero-typing-letter {
+    animation: heroTypeLetter 25ms step-end backwards;
+  }
+
+  .hero-sweep-reveal {
+    display: block;
+    animation: heroSweepReveal linear backwards;
+  }
+
+  .hero-interactive-letter-slot,
+  .hero-interactive-letter {
+    display: inline-block;
+  }
+
+  .hero-interactive-letter {
+    transition: transform 650ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  }
 }
 
 @layer utilities {
@@ -50,5 +72,37 @@
 
   .animate-delay-600 {
     animation-delay: 600ms;
+  }
+}
+
+@keyframes heroTypeLetter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes heroSweepReveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-typing-letter,
+  .hero-sweep-reveal {
+    opacity: 1;
+    animation: none;
+  }
+
+  .hero-interactive-letter {
+    transition: none;
   }
 }

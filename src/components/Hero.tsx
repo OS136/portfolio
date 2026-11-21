@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useRef } from "react";
 import { portfolioData } from "../data/content";
+import InteractiveText, { getTypingDuration, SWEEP_DURATION, TYPING_INTERVAL, useTextRepulsion } from "./InteractiveText";
 
 const Hero: React.FC = () => {
   const { personal } = portfolioData;
+  const heroRef = useRef<HTMLElement>(null);
+  useTextRepulsion(heroRef);
+
+  const greeting = "Hi, I'm";
+  const availability = "Available for opportunities";
+  const pause = 150;
+  const greetingDelay = 400;
+  const nameDelay = greetingDelay + Array.from(`${greeting} `).length * TYPING_INTERVAL;
+  const titleDelay = nameDelay + getTypingDuration(personal.name) + pause;
+  const summaryDelay = titleDelay + getTypingDuration(personal.title) + pause;
+  const locationDelay = summaryDelay + SWEEP_DURATION + pause;
+  const availabilityDelay = locationDelay + getTypingDuration(personal.location) + pause;
 
   const scrollToContact = () => {
     const element = document.querySelector("#contact");
@@ -21,6 +34,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
+      ref={heroRef}
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 pt-16"
     >
       <div className="container-width section-padding text-center">
@@ -34,24 +48,27 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Name and title */}
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 animate-slide-up">
-            Hi, I'm <span className="text-gradient">{personal.name}</span>
+          <h1 className="hero-interactive-heading text-4xl md:text-6xl font-bold text-gray-900 mb-4">
+            <InteractiveText text={greeting} animated animationDelay={greetingDelay} />{" "}
+            <InteractiveText text={personal.name} gradient animated animationDelay={nameDelay} />
           </h1>
 
-          <h2 className="text-xl md:text-2xl text-gray-600 mb-8 animate-slide-up animate-delay-200">
-            {personal.title}
+          <h2 className="hero-interactive-heading text-xl md:text-2xl text-gray-600 mb-8">
+            <InteractiveText text={personal.title} animated animationDelay={titleDelay} />
           </h2>
 
           {/* Summary */}
-          <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up animate-delay-400">
-            {personal.summary}
+          <p className="hero-summary text-lg text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <InteractiveText text={personal.summary} sweepReveal animationDelay={summaryDelay} />
           </p>
 
           {/* Location and availability */}
-          <div className="flex flex-wrap justify-center items-center gap-6 mb-12 text-gray-600 animate-slide-up animate-delay-600">
+          <div className="hero-interactive-details flex flex-wrap justify-center items-center gap-6 mb-12 text-gray-600">
             <div className="flex items-center">
               <svg
-                className="w-5 h-5 mr-2"
+                className="w-5 h-5 mr-2 hero-typing-letter"
+                style={{ animationDelay: `${locationDelay}ms` }}
+                aria-hidden="true"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -69,11 +86,15 @@ const Hero: React.FC = () => {
                   d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                 />
               </svg>
-              {personal.location}
+              <InteractiveText text={personal.location} animated animationDelay={locationDelay} />
             </div>
             <div className="flex items-center">
-              <span className="w-3 h-3 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-              Available for opportunities
+              <span
+                className="w-3 h-3 bg-green-400 rounded-full mr-2 hero-typing-letter"
+                style={{ animationDelay: `${availabilityDelay}ms` }}
+                aria-hidden="true"
+              ></span>
+              <InteractiveText text={availability} animated animationDelay={availabilityDelay} />
             </div>
           </div>
 
