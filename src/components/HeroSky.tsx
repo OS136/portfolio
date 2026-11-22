@@ -36,9 +36,9 @@ const fragmentShader = `
     vec3 direction = normalize(vec3(screen * 1.4, 1.0));
     vec3 p = direction * 3.2 + vec3(time * 0.018, time * 0.009, time * 0.012);
     float clouds = noise(p) * 0.57 + noise(p * 2.0) * 0.28 + noise(p * 4.0) * 0.15;
-    vec3 sky = mix(vec3(0.82, 0.90, 0.98), vec3(0.93, 0.96, 1.0), uv.y);
-    sky = mix(sky, vec3(0.95, 0.92, 0.99), smoothstep(0.25, 0.85, clouds) * 0.35);
-    sky = mix(sky, vec3(1.0), smoothstep(0.42, 0.75, clouds) * 0.42);
+    vec3 sky = mix(vec3(0.93, 0.95, 0.98), vec3(0.96, 0.97, 0.99), uv.y);
+    sky = mix(sky, vec3(0.97, 0.96, 0.99), smoothstep(0.25, 0.85, clouds) * 0.25);
+    sky = mix(sky, vec3(1.0), smoothstep(0.42, 0.75, clouds) * 0.3);
     gl_FragColor = vec4(sky, 1.0);
   }
 `;

@@ -44,9 +44,8 @@
     overflow: hidden;
     pointer-events: none;
     background:
-      radial-gradient(ellipse at 20% 30%, #f8fbff, transparent 55%),
-      radial-gradient(ellipse at 85% 70%, #eae8fa, transparent 55%),
-      linear-gradient(#edf5ff, #d8e9f9);
+      radial-gradient(ellipse at 15% 28%, rgba(147, 197, 253, 0.18), transparent 38%),
+      radial-gradient(ellipse at 85% 72%, rgba(196, 181, 253, 0.2), transparent 38%);
   }
 
   .hero-sky {
