@@ -3,6 +3,8 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import Hero from "./Hero";
 import { portfolioData } from "../data/content";
 
+jest.mock("./HeroSky", () => () => null);
+
 describe("hero interactive text", () => {
   let reducedMotion: boolean;
   let nextFrame: FrameRequestCallback | undefined;

@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import { fireEvent, render } from "@testing-library/react";
 import HeroBackground from "./HeroBackground";
 
+jest.mock("./HeroSky", () => () => null);
+
 const TestHero = () => {
   const heroRef = useRef<HTMLElement>(null);
   return (

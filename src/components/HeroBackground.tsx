@@ -1,4 +1,5 @@
 import React, { RefObject, useEffect, useRef } from "react";
+import HeroSky from "./HeroSky";
 
 const PARTICLE_COLUMNS = 12;
 const PARTICLE_ROWS = 8;
@@ -199,6 +200,7 @@ const HeroBackground: React.FC<HeroBackgroundProps> = ({ heroRef }) => {
 
   return (
     <div ref={backgroundRef} className="hero-background" aria-hidden="true">
+      <HeroSky />
       <canvas ref={canvasRef} className="hero-connections" />
       {particles.map((particle, index) => (
         <span
