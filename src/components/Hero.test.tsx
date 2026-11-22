@@ -76,6 +76,25 @@ describe("hero interactive text", () => {
     expect(link.getAttribute("download")).toBe("Olena_Shereiko_Full_Stack_Developer_CV.pdf");
   });
 
+  it("shows the supplied portrait alongside the introduction", () => {
+    const { container } = render(<Hero />);
+    const image = screen.getByRole("img", { name: "Olena Shereiko sitting with a laptop" });
+    expect(image.getAttribute("src")).toBe(`${process.env.PUBLIC_URL || ""}/olena-shereiko-portrait-refined.png`);
+    expect(image.parentElement?.classList.contains("hero-portrait")).toBe(true);
+    expect(container.querySelector(".hero-portrait-frame")).toBeNull();
+    const statement = container.querySelector(".hero-statement");
+    expect(statement?.querySelector(":scope > .sr-only")?.textContent).toBe("Curiosity meets creation.");
+    expect(statement?.parentElement).toBe(image.parentElement);
+  });
+
+  it("keeps the full name grouped in the heading", () => {
+    render(<Hero />);
+    const heading = screen.getByRole("heading", { level: 1 });
+    const name = heading.querySelector(".hero-full-name");
+    expect(name?.querySelector(".sr-only")?.textContent).toBe(portfolioData.personal.name);
+    expect(name?.querySelectorAll(".hero-interactive-word")).toHaveLength(2);
+  });
+
   it("preserves the destinations and accessible names of the glass social links", () => {
     render(<Hero />);
     const links = [
@@ -113,15 +132,18 @@ describe("hero interactive text", () => {
     expect(screen.getByRole("heading", { level: 1 }).textContent).toContain(
       portfolioData.personal.name
     );
-    expect(screen.getByRole("heading", { level: 2 }).textContent).toContain(
-      portfolioData.personal.title
-    );
+    const eyebrow = container.querySelector(".hero-eyebrow");
+    expect(eyebrow?.querySelector(".sr-only")?.textContent).toBe(portfolioData.personal.title);
+    expect(container.querySelector(".hero-role")).toBeNull();
+    expect(eyebrow?.textContent).not.toContain("Software development");
 
     const textBlocks = [
       screen.getByRole("heading", { level: 1 }),
-      screen.getByRole("heading", { level: 2 }),
+      eyebrow,
       container.querySelector(".hero-summary"),
       container.querySelector(".hero-interactive-details"),
+      container.querySelector(".hero-statement-line"),
+      container.querySelector(".hero-statement-creation"),
     ];
     const letters = textBlocks.map((block) =>
       block?.querySelector<HTMLElement>(".hero-interactive-letter")
@@ -138,20 +160,20 @@ describe("hero interactive text", () => {
 
   it("does not move letters for touch or reduced motion", () => {
     const { container } = render(<Hero />);
-    const letter = container.querySelector<HTMLElement>(".hero-interactive-letter");
+    const letters = Array.from(container.querySelectorAll<HTMLElement>(".hero-statement .hero-interactive-letter"));
     movePointer("touch");
-    expect(letter?.style.transform).toBe("");
+    expect(letters.every((letter) => letter.style.transform === "")).toBe(true);
     reducedMotion = true;
     movePointer("mouse");
-    expect(letter?.style.transform).toBe("");
+    expect(letters.every((letter) => letter.style.transform === "")).toBe(true);
   });
 
   it("sweeps the full summary between the typed text blocks", () => {
     const { container } = render(<Hero />);
     const detailBlocks = Array.from(container.querySelectorAll(".hero-interactive-details > div"));
     const blocks = [
+      container.querySelector(".hero-eyebrow"),
       screen.getByRole("heading", { level: 1 }),
-      screen.getByRole("heading", { level: 2 }),
       container.querySelector(".hero-summary"),
       ...detailBlocks,
     ];
@@ -170,7 +192,8 @@ describe("hero interactive text", () => {
 
     const headingLetters = screen.getByRole("heading", { level: 1 })
       .querySelectorAll<HTMLElement>(".hero-interactive-letter-slot");
-    expect(headingLetters[6].style.animationDelay).toBe("600ms");
+    const greetingDelay = 400 + portfolioData.personal.title.length * 25 + 150;
+    expect(headingLetters[6].style.animationDelay).toBe(`${greetingDelay + 200}ms`);
 
     for (let index = 1; index < blocks.length; index++) {
       const previous = blocks[index - 1]?.querySelectorAll<HTMLElement>(".hero-typing-letter, .hero-sweep-reveal");

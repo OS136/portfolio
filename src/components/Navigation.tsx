@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { portfolioData } from "../data/content";
 
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,9 +42,12 @@ const Navigation: React.FC = () => {
           <div className="flex-shrink-0">
             <button
               onClick={() => scrollToSection("#hero")}
-              className="text-xl font-bold text-gradient hover:scale-105 transition-transform"
+              className="nav-logo rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+              aria-label={`${portfolioData.personal.name} - back to top`}
             >
-              Olena Shereiko
+              <span className="nav-glass-avatar" aria-hidden="true">
+                {portfolioData.personal.name.split(" ").map((name) => name[0]).join("")}
+              </span>
             </button>
           </div>
 

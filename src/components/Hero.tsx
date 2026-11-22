@@ -13,10 +13,10 @@ const Hero: React.FC = () => {
   const availability = "Available for opportunities";
   const resumeDownload = { download: "Olena_Shereiko_Full_Stack_Developer_CV.pdf" };
   const pause = 150;
-  const greetingDelay = 400;
+  const titleDelay = 400;
+  const greetingDelay = titleDelay + getTypingDuration(personal.title) + pause;
   const nameDelay = greetingDelay + Array.from(`${greeting} `).length * TYPING_INTERVAL;
-  const titleDelay = nameDelay + getTypingDuration(personal.name) + pause;
-  const summaryDelay = titleDelay + getTypingDuration(personal.title) + pause;
+  const summaryDelay = nameDelay + getTypingDuration(personal.name) + pause;
   const locationDelay = summaryDelay + SWEEP_DURATION + pause;
   const availabilityDelay = locationDelay + getTypingDuration(personal.location) + pause;
 
@@ -41,33 +41,28 @@ const Hero: React.FC = () => {
       className="relative isolate overflow-hidden min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 pt-16"
     >
       <HeroBackground heroRef={heroRef} />
-      <div className="relative container-width section-padding text-center">
-        <div className="animate-fade-in">
-          {/* Avatar placeholder */}
-          <div className="hero-glass-avatar w-32 h-32 mx-auto mb-8 rounded-full flex items-center justify-center text-4xl font-bold animate-bounce-gentle">
-            {personal.name
-              .split(" ")
-              .map((n) => n[0])
-              .join("")}
-          </div>
+      <div className="hero-layout relative container-width section-padding">
+        <div className="hero-copy animate-fade-in">
+          <p className="hero-eyebrow">
+            Portfolio <span className="hero-eyebrow-divider" aria-hidden="true">/</span>
+            <InteractiveText text={personal.title} animated animationDelay={titleDelay} />
+          </p>
 
-          {/* Name and title */}
-          <h1 className="hero-interactive-heading text-4xl md:text-6xl font-bold text-gray-900 mb-4">
+          {/* Name */}
+          <h1 className="hero-interactive-heading hero-name font-bold text-gray-900 mb-8">
             <InteractiveText text={greeting} animated animationDelay={greetingDelay} />{" "}
-            <InteractiveText text={personal.name} gradient animated animationDelay={nameDelay} />
+            <span className="hero-full-name">
+              <InteractiveText text={personal.name} gradient animated animationDelay={nameDelay} />
+            </span>
           </h1>
 
-          <h2 className="hero-interactive-heading text-xl md:text-2xl text-gray-600 mb-8">
-            <InteractiveText text={personal.title} animated animationDelay={titleDelay} />
-          </h2>
-
           {/* Summary */}
-          <p className="hero-summary text-lg text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="hero-summary text-gray-700 mb-8 max-w-3xl leading-relaxed">
             <InteractiveText text={personal.summary} sweepReveal animationDelay={summaryDelay} />
           </p>
 
           {/* Location and availability */}
-          <div className="hero-interactive-details flex flex-wrap justify-center items-center gap-6 mb-12 text-gray-600">
+          <div className="hero-interactive-details flex flex-wrap items-center gap-6 mb-10 text-gray-600">
             <div className="flex items-center">
               <svg
                 className="w-5 h-5 mr-2 hero-typing-letter"
@@ -103,8 +98,8 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Action buttons */}
-          <div data-theme="light" className="hero-actions flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center animate-slide-up animate-delay-600">
-            <GlassButton onClick={scrollToProjects} variant="clear" tint="#075a98" intensity={8} thickness={1.5} size="lg" className="hero-glass-button hero-glass-button-primary">
+          <div data-theme="light" className="hero-actions flex flex-col sm:flex-row sm:flex-wrap animate-slide-up animate-delay-600">
+            <GlassButton onClick={scrollToProjects} variant="clear" tint="#075a98" intensity={9} thickness={2} size="lg" className="hero-glass-button hero-glass-button-primary">
               View My Work
               <svg
                 className="w-5 h-5 ml-2"
@@ -121,7 +116,7 @@ const Hero: React.FC = () => {
               </svg>
             </GlassButton>
 
-            <GlassButton onClick={scrollToContact} variant="clear" intensity={8} thickness={1.5} size="lg" className="hero-glass-button">
+            <GlassButton onClick={scrollToContact} variant="clear" intensity={9} thickness={2} size="lg" className="hero-glass-button">
               Get In Touch
               <svg
                 className="w-5 h-5 ml-2"
@@ -144,8 +139,8 @@ const Hero: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               variant="clear"
-              intensity={8}
-              thickness={1.5}
+              intensity={9}
+              thickness={2}
               size="lg"
               className="hero-glass-button"
             >
@@ -168,15 +163,15 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Social links */}
-          <div data-theme="light" className="hero-social flex justify-center gap-6 mt-12 animate-slide-up animate-delay-600">
+          <div data-theme="light" className="hero-social flex gap-6 mt-10 animate-slide-up animate-delay-600">
             {personal.github && (
               <GlassButton
                 href={personal.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="clear"
-                intensity={8}
-                thickness={1.5}
+                intensity={9}
+                thickness={2}
                 size="lg"
                 className="hero-glass-button hero-glass-social"
                 aria-label="GitHub"
@@ -198,8 +193,8 @@ const Hero: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="clear"
-                intensity={8}
-                thickness={1.5}
+                intensity={9}
+                thickness={2}
                 size="lg"
                 className="hero-glass-button hero-glass-social"
                 aria-label="LinkedIn"
@@ -218,8 +213,8 @@ const Hero: React.FC = () => {
             <GlassButton
               href={`mailto:${personal.email}`}
               variant="clear"
-              intensity={8}
-              thickness={1.5}
+              intensity={9}
+              thickness={2}
               size="lg"
               className="hero-glass-button hero-glass-social"
               aria-label="Email"
@@ -240,6 +235,23 @@ const Hero: React.FC = () => {
               </svg>}
             />
           </div>
+        </div>
+
+        <div className="hero-portrait">
+          <img
+            src={`${process.env.PUBLIC_URL}/olena-shereiko-portrait-refined.png`}
+            alt="Olena Shereiko sitting with a laptop"
+            width="694"
+            height="815"
+            className="hero-portrait-image"
+          />
+          <p className="hero-statement">
+            <span className="sr-only">Curiosity meets creation.</span>
+            <span aria-hidden="true">
+              <span className="hero-statement-line"><InteractiveText text="Curiosity meets" /></span>
+              <span className="hero-statement-line hero-statement-creation"><InteractiveText text="creation." /></span>
+            </span>
+          </p>
         </div>
 
         {/* Scroll indicator */}
