@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@import "@zakisheriff/liquid-glass/styles.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -80,6 +81,64 @@
 
   .hero-particle:nth-of-type(3n) .hero-particle-glow {
     background: #60a5fa;
+  }
+
+  .hero-glass-avatar {
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.55), rgba(96, 165, 250, 0.28) 55%, rgba(52, 126, 194, 0.38));
+    box-shadow: 0 12px 30px rgba(40, 88, 140, 0.18), inset 0 2px 4px rgba(255, 255, 255, 0.95), inset 0 -4px 10px rgba(52, 126, 194, 0.25);
+    -webkit-backdrop-filter: blur(3px) saturate(1.5);
+    backdrop-filter: blur(3px) saturate(1.5);
+    color: #07517f;
+  }
+
+  .hero-actions .hero-glass-button,
+  .hero-social .hero-glass-button {
+    --lg-glass-fill: rgba(255, 255, 255, 0.18);
+    --lg-fill: rgba(255, 255, 255, 0.18);
+    --lg-fill-pressed: rgba(255, 255, 255, 0.36);
+    --lg-glass-blur: 3px;
+    --lg-glass-shadow: 0 8px 22px rgba(40, 88, 140, 0.16), inset 0 1px 2px rgba(255, 255, 255, 0.95), inset 0 -2px 4px rgba(79, 133, 188, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.78);
+    background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.04) 50%, rgba(158, 195, 234, 0.16));
+    color: #233e59;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .hero-actions .hero-glass-button-primary {
+    --lg-glass-fill: rgba(100, 177, 235, 0.23);
+    --lg-fill: rgba(100, 177, 235, 0.23);
+    color: #064d7e;
+  }
+
+  .hero-social .hero-glass-social {
+    padding: 0;
+  }
+
+  .hero-social .hero-glass-social:hover {
+    color: #075a98;
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .hero-actions .hero-glass-button,
+    .hero-social .hero-glass-button {
+      --lg-glass-fill: #f0f6fc;
+      --lg-fill: #f0f6fc;
+      background-image: none;
+    }
+
+    .hero-actions .hero-glass-button-primary {
+      --lg-glass-fill: #d7ecfa;
+      --lg-fill: #d7ecfa;
+    }
+
+    .hero-glass-avatar {
+      background: #d7ecfa;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
   }
 
   .hero-interactive-word {

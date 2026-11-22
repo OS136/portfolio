@@ -8,10 +8,16 @@ jest.mock("./HeroSky", () => () => null);
 describe("hero interactive text", () => {
   let reducedMotion: boolean;
   let nextFrame: FrameRequestCallback | undefined;
+  const originalResizeObserver = global.ResizeObserver;
 
   beforeEach(() => {
     reducedMotion = false;
     nextFrame = undefined;
+    global.ResizeObserver = class {
+      observe() {}
+      unobserve() {}
+      disconnect() {}
+    };
     jest.spyOn(HTMLCanvasElement.prototype, "getContext").mockReturnValue({
       setTransform: jest.fn(),
       clearRect: jest.fn(),
@@ -46,6 +52,7 @@ describe("hero interactive text", () => {
   });
 
   afterEach(() => jest.restoreAllMocks());
+  afterAll(() => { global.ResizeObserver = originalResizeObserver; });
 
   function movePointer(pointerType: string) {
     const event = new MouseEvent("pointermove", {
@@ -67,6 +74,38 @@ describe("hero interactive text", () => {
     const link = screen.getByRole("link", { name: "Download Resume (PDF)" });
     expect(link.getAttribute("href")).toBe("/portfolio/Olena_Shereiko_Full_Stack_Developer_CV.pdf");
     expect(link.getAttribute("download")).toBe("Olena_Shereiko_Full_Stack_Developer_CV.pdf");
+  });
+
+  it("preserves the destinations and accessible names of the glass social links", () => {
+    render(<Hero />);
+    const links = [
+      { name: "GitHub", href: portfolioData.personal.github },
+      { name: "LinkedIn", href: portfolioData.personal.linkedin },
+      { name: "Email", href: `mailto:${portfolioData.personal.email}` },
+    ];
+    links.forEach(({ name, href }) => {
+      const link = screen.getByRole("link", { name });
+      expect(link.getAttribute("href")).toBe(href);
+      expect(link.classList.contains("hero-glass-social")).toBe(true);
+    });
+  });
+
+  it("navigates to projects and contact using the glass buttons", () => {
+    render(<Hero />);
+    const projects = document.createElement("section");
+    const contact = document.createElement("section");
+    projects.id = "projects";
+    contact.id = "contact";
+    projects.scrollIntoView = jest.fn();
+    contact.scrollIntoView = jest.fn();
+    document.body.append(projects, contact);
+
+    fireEvent.click(screen.getByRole("button", { name: "View My Work" }));
+    fireEvent.click(screen.getByRole("button", { name: "Get In Touch" }));
+    expect(projects.scrollIntoView).toHaveBeenCalledWith({ behavior: "smooth" });
+    expect(contact.scrollIntoView).toHaveBeenCalledWith({ behavior: "smooth" });
+    projects.remove();
+    contact.remove();
   });
 
   it("moves letters in each requested text and returns them when scrolling", () => {
