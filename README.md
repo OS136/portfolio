@@ -11,6 +11,8 @@ Visit the live site: [https://os136.github.io/portfolio](https://your-username.g
 - **Responsive Design**: Looks great on all devices and screen sizes
 - **GitHub Integration**: Automatically showcases your repositories with live data
 - **Interactive Sections**: Smooth animations and hover effects
+- **Hero Sky**: A lightweight animated WebGL sky behind the interactive particle network, with a static fallback and reduced-motion support
+- **Liquid Glass**: Glass-style hero buttons using `@zakisheriff/liquid-glass`
 - **Project Carousel**: Featured projects with slideshow functionality
 - **Skills Visualization**: Interactive skill bars with proficiency levels
 - **Contact Form**: Pre-filled email client integration
@@ -223,4 +225,3 @@ This project is open source and available under the [MIT License](LICENSE).
 - Hosted on GitHub Pages
 
 ---
-
