@@ -134,6 +134,7 @@ const InteractiveText: React.FC<InteractiveTextProps> = ({
   sweepReveal = false,
 }) => {
   const words = text.split(" ");
+  const totalCharacters = Array.from(text).length;
   let characterIndex = 0;
 
   return (
@@ -161,7 +162,13 @@ const InteractiveText: React.FC<InteractiveTextProps> = ({
                     } : undefined}
                     key={letterIndex}
                   >
-                    <span className={`hero-interactive-letter${gradient ? " text-gradient" : ""}`}>
+                    <span
+                      className={`hero-interactive-letter${gradient ? " text-gradient" : ""}`}
+                      style={gradient ? ({
+                        "--letter-start": (firstCharacterIndex + letterIndex) / totalCharacters,
+                        "--letter-end": (firstCharacterIndex + letterIndex + 1) / totalCharacters,
+                      } as React.CSSProperties) : undefined}
+                    >
                       {letter}
                     </span>
                   </span>

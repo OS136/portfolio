@@ -92,7 +92,7 @@ describe("hero interactive text", () => {
     expect(name?.querySelectorAll(".hero-interactive-word")).toHaveLength(2);
   });
 
-  it("preserves the destinations and accessible names of the glass social links", () => {
+  it("preserves the destinations and accessible names of the social links", () => {
     render(<Hero />);
     const links = [
       { name: "GitHub", href: portfolioData.personal.github },
@@ -102,11 +102,11 @@ describe("hero interactive text", () => {
     links.forEach(({ name, href }) => {
       const link = screen.getByRole("link", { name });
       expect(link.getAttribute("href")).toBe(href);
-      expect(link.classList.contains("hero-glass-social")).toBe(true);
+      expect(link.classList.contains("hero-social-link")).toBe(true);
     });
   });
 
-  it("navigates to projects and contact using the glass buttons", () => {
+  it("navigates to projects and contact using the hero buttons", () => {
     render(<Hero />);
     const projects = document.createElement("section");
     const contact = document.createElement("section");
@@ -166,7 +166,7 @@ describe("hero interactive text", () => {
 
   it("sweeps the full summary between the typed text blocks", () => {
     const { container } = render(<Hero />);
-    const detailBlocks = Array.from(container.querySelectorAll(".hero-interactive-details > div"));
+    const detailBlocks = Array.from(container.querySelectorAll(".hero-interactive-details > li"));
     const blocks = [
       container.querySelector(".hero-eyebrow"),
       screen.getByRole("heading", { level: 1 }),
@@ -213,7 +213,7 @@ describe("hero interactive text", () => {
 
   it("reveals each hero icon alongside its corresponding text", () => {
     const { container } = render(<Hero />);
-    const detailBlocks = Array.from(container.querySelectorAll(".hero-interactive-details > div"));
+    const detailBlocks = Array.from(container.querySelectorAll(".hero-interactive-details > li"));
     const locationIcon = detailBlocks[0]?.querySelector<SVGElement>("svg");
     const locationText = detailBlocks[0]?.querySelector<HTMLElement>(".hero-interactive-word .hero-typing-letter");
     const availabilityIcon = detailBlocks[1]?.querySelector<HTMLElement>("span.hero-typing-letter");

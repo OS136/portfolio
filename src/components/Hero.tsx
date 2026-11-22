@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { GlassButton } from "@zakisheriff/liquid-glass";
 import { portfolioData } from "../data/content";
 import HeroBackground from "./HeroBackground";
 import InteractiveText, { getTypingDuration, SWEEP_DURATION, TYPING_INTERVAL, useTextRepulsion } from "./InteractiveText";
@@ -11,7 +10,6 @@ const Hero: React.FC = () => {
 
   const greeting = "Hi, I'm";
   const availability = "Available for opportunities";
-  const resumeDownload = { download: "Olena_Shereiko_Full_Stack_Developer_CV.pdf" };
   const pause = 150;
   const titleDelay = 400;
   const greetingDelay = titleDelay + getTypingDuration(personal.title) + pause;
@@ -37,6 +35,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
+      aria-labelledby="hero-heading"
       ref={heroRef}
       className="relative isolate overflow-hidden min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 pt-16"
     >
@@ -44,12 +43,12 @@ const Hero: React.FC = () => {
       <div className="hero-layout relative container-width section-padding">
         <div className="hero-copy animate-fade-in">
           <p className="hero-eyebrow">
-            Portfolio <span className="hero-eyebrow-divider" aria-hidden="true">/</span>
+            <span className="hero-eyebrow-accent">Portfolio</span> <span className="hero-eyebrow-divider" aria-hidden="true">/</span>
             <InteractiveText text={personal.title} animated animationDelay={titleDelay} />
           </p>
 
           {/* Name */}
-          <h1 className="hero-interactive-heading hero-name font-bold text-gray-900 mb-8">
+          <h1 id="hero-heading" className="hero-interactive-heading hero-name font-bold text-gray-900 mb-8">
             <InteractiveText text={greeting} animated animationDelay={greetingDelay} />{" "}
             <span className="hero-full-name">
               <InteractiveText text={personal.name} gradient animated animationDelay={nameDelay} />
@@ -62,10 +61,10 @@ const Hero: React.FC = () => {
           </p>
 
           {/* Location and availability */}
-          <div className="hero-interactive-details flex flex-wrap items-center gap-6 mb-10 text-gray-600">
-            <div className="flex items-center">
+          <ul className="hero-interactive-details flex flex-wrap items-center gap-6 mb-10 text-gray-600">
+            <li className="flex items-center">
               <svg
-                className="w-5 h-5 mr-2 hero-typing-letter"
+                className="w-5 h-5 mr-2 hero-typing-letter hero-pin-icon"
                 style={{ animationDelay: `${locationDelay}ms` }}
                 aria-hidden="true"
                 fill="none"
@@ -86,20 +85,20 @@ const Hero: React.FC = () => {
                 />
               </svg>
               <InteractiveText text={personal.location} animated animationDelay={locationDelay} />
-            </div>
-            <div className="flex items-center">
+            </li>
+            <li className="flex items-center">
               <span
                 className="w-3 h-3 bg-green-400 rounded-full mr-2 hero-typing-letter"
                 style={{ animationDelay: `${availabilityDelay}ms` }}
                 aria-hidden="true"
               ></span>
               <InteractiveText text={availability} animated animationDelay={availabilityDelay} />
-            </div>
-          </div>
+            </li>
+          </ul>
 
           {/* Action buttons */}
-          <div data-theme="light" className="hero-actions flex flex-col sm:flex-row sm:flex-wrap animate-slide-up animate-delay-600">
-            <GlassButton onClick={scrollToProjects} variant="clear" tint="#075a98" intensity={9} thickness={2} size="lg" className="hero-glass-button hero-glass-button-primary">
+          <div role="group" aria-label="Primary actions" className="hero-actions animate-slide-up animate-delay-600">
+            <button type="button" onClick={scrollToProjects} className="hero-button hero-button-primary">
               View My Work
               <svg
                 className="w-5 h-5 ml-2"
@@ -114,9 +113,9 @@ const Hero: React.FC = () => {
                   d="M19 14l-7 7m0 0l-7-7m7 7V3"
                 />
               </svg>
-            </GlassButton>
+            </button>
 
-            <GlassButton onClick={scrollToContact} variant="clear" intensity={9} thickness={2} size="lg" className="hero-glass-button">
+            <button type="button" onClick={scrollToContact} className="hero-button">
               Get In Touch
               <svg
                 className="w-5 h-5 ml-2"
@@ -131,18 +130,14 @@ const Hero: React.FC = () => {
                   d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
                 />
               </svg>
-            </GlassButton>
+            </button>
 
-            <GlassButton
+            <a
               href="/portfolio/Olena_Shereiko_Full_Stack_Developer_CV.pdf"
-              {...resumeDownload}
+              download="Olena_Shereiko_Full_Stack_Developer_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              variant="clear"
-              intensity={9}
-              thickness={2}
-              size="lg"
-              className="hero-glass-button"
+              className="hero-button"
             >
               <svg
                 className="w-5 h-5 mr-2"
@@ -159,23 +154,19 @@ const Hero: React.FC = () => {
                 />
               </svg>
               Download Resume (PDF)
-            </GlassButton>
+            </a>
           </div>
 
           {/* Social links */}
-          <div data-theme="light" className="hero-social flex gap-6 mt-10 animate-slide-up animate-delay-600">
+          <nav aria-label="Social links" className="hero-social flex gap-6 mt-10 animate-slide-up animate-delay-600">
             {personal.github && (
-              <GlassButton
+              <a
                 href={personal.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                variant="clear"
-                intensity={9}
-                thickness={2}
-                size="lg"
-                className="hero-glass-button hero-glass-social"
+                className="hero-button hero-social-link"
                 aria-label="GitHub"
-                icon={
+              >
                 <svg
                   className="w-6 h-6"
                   aria-hidden="true"
@@ -183,22 +174,18 @@ const Hero: React.FC = () => {
                   viewBox="0 0 24 24"
                 >
                   <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
-                </svg>}
-              />
+                </svg>
+              </a>
             )}
 
             {personal.linkedin && (
-              <GlassButton
+              <a
                 href={personal.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                variant="clear"
-                intensity={9}
-                thickness={2}
-                size="lg"
-                className="hero-glass-button hero-glass-social"
+                className="hero-button hero-social-link"
                 aria-label="LinkedIn"
-                icon={
+              >
                 <svg
                   className="w-6 h-6"
                   aria-hidden="true"
@@ -206,19 +193,15 @@ const Hero: React.FC = () => {
                   viewBox="0 0 24 24"
                 >
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>}
-              />
+                </svg>
+              </a>
             )}
 
-            <GlassButton
+            <a
               href={`mailto:${personal.email}`}
-              variant="clear"
-              intensity={9}
-              thickness={2}
-              size="lg"
-              className="hero-glass-button hero-glass-social"
+              className="hero-button hero-social-link"
               aria-label="Email"
-              icon={
+            >
               <svg
                 className="w-6 h-6"
                 aria-hidden="true"
@@ -232,12 +215,12 @@ const Hero: React.FC = () => {
                   strokeWidth={2}
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
-              </svg>}
-            />
-          </div>
+              </svg>
+            </a>
+          </nav>
         </div>
 
-        <div className="hero-portrait">
+        <figure className="hero-portrait">
           <img
             src={`${process.env.PUBLIC_URL}/olena-shereiko-portrait-refined.png`}
             alt="Olena Shereiko sitting with a laptop"
@@ -245,10 +228,10 @@ const Hero: React.FC = () => {
             height="815"
             className="hero-portrait-image"
           />
-        </div>
+        </figure>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div aria-hidden="true" className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <svg
             className="w-6 h-6 text-gray-400"
             fill="none"

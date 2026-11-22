@@ -45,9 +45,16 @@ const Navigation: React.FC = () => {
               className="nav-logo rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
               aria-label={`${portfolioData.personal.name} - back to top`}
             >
-              <span className="nav-glass-avatar" aria-hidden="true">
-                {portfolioData.personal.name.split(" ").map((name) => name[0]).join("")}
-              </span>
+              <svg className="nav-logo-text" viewBox="-4 -4 72 72" aria-hidden="true">
+                <defs>
+                  <path id="nav-logo-circle" d="M 32,32 m -24,0 a 24,24 0 1,1 48,0 a 24,24 0 1,1 -48,0" />
+                </defs>
+                <text>
+                  <textPath href="#nav-logo-circle" startOffset="50%" textAnchor="middle" textLength="140" lengthAdjust="spacing">
+                    Curiosity meets creation
+                  </textPath>
+                </text>
+              </svg>
             </button>
           </div>
 
