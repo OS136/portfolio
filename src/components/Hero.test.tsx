@@ -82,9 +82,6 @@ describe("hero interactive text", () => {
     expect(image.getAttribute("src")).toBe(`${process.env.PUBLIC_URL || ""}/olena-shereiko-portrait-refined.png`);
     expect(image.parentElement?.classList.contains("hero-portrait")).toBe(true);
     expect(container.querySelector(".hero-portrait-frame")).toBeNull();
-    const statement = container.querySelector(".hero-statement");
-    expect(statement?.querySelector(":scope > .sr-only")?.textContent).toBe("Curiosity meets creation.");
-    expect(statement?.parentElement).toBe(image.parentElement);
   });
 
   it("keeps the full name grouped in the heading", () => {
@@ -142,8 +139,6 @@ describe("hero interactive text", () => {
       eyebrow,
       container.querySelector(".hero-summary"),
       container.querySelector(".hero-interactive-details"),
-      container.querySelector(".hero-statement-line"),
-      container.querySelector(".hero-statement-creation"),
     ];
     const letters = textBlocks.map((block) =>
       block?.querySelector<HTMLElement>(".hero-interactive-letter")
@@ -160,7 +155,8 @@ describe("hero interactive text", () => {
 
   it("does not move letters for touch or reduced motion", () => {
     const { container } = render(<Hero />);
-    const letters = Array.from(container.querySelectorAll<HTMLElement>(".hero-statement .hero-interactive-letter"));
+    const letters = Array.from(container.querySelectorAll<HTMLElement>(".hero-interactive-letter"));
+    expect(letters.length).toBeGreaterThan(0);
     movePointer("touch");
     expect(letters.every((letter) => letter.style.transform === "")).toBe(true);
     reducedMotion = true;

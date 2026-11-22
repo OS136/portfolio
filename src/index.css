@@ -125,42 +125,10 @@
     font-size: min(1em, 9.5vw);
   }
 
-  .hero-statement {
-    position: absolute;
-    right: 0;
-    bottom: 0.5rem;
-    width: 100%;
-    margin: 0;
-    color: #d41470;
-    font-size: clamp(1.65rem, 6.2vw, 3rem);
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    line-height: 1.02;
-    text-align: center;
-    filter: drop-shadow(0 1px 5px rgba(255, 255, 255, 0.95));
-    pointer-events: none;
-  }
-
-  .hero-statement-line {
-    display: block;
-  }
-
-  .hero-statement-creation {
-    font-style: italic;
-  }
-
   @supports (background-clip: text) or (-webkit-background-clip: text) {
-    .hero-full-name .hero-interactive-letter,
-    .hero-statement .hero-interactive-letter {
+    .hero-full-name .hero-interactive-letter {
       padding: 0.2em;
       margin: -0.2em;
-    }
-
-    .hero-statement .hero-interactive-letter {
-      background-image: linear-gradient(90deg, #b80f69, #d41470, #df4b99);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
   }
 
@@ -227,13 +195,6 @@
       justify-self: end;
     }
 
-    .hero-statement {
-      right: -2rem;
-      bottom: -1.5rem;
-      width: 120%;
-      font-size: clamp(2.75rem, 4vw, 4rem);
-      transform: translateX(calc(1rem + clamp(0px, (100vw - 1024px) * 0.1, 2rem)));
-    }
   }
 
   .nav-logo {

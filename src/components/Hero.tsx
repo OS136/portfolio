@@ -245,13 +245,6 @@ const Hero: React.FC = () => {
             height="815"
             className="hero-portrait-image"
           />
-          <p className="hero-statement">
-            <span className="sr-only">Curiosity meets creation.</span>
-            <span aria-hidden="true">
-              <span className="hero-statement-line"><InteractiveText text="Curiosity meets" /></span>
-              <span className="hero-statement-line hero-statement-creation"><InteractiveText text="creation." /></span>
-            </span>
-          </p>
         </div>
 
         {/* Scroll indicator */}
