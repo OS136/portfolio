@@ -15,19 +15,19 @@ const Education: React.FC = () => {
   };
 
   return (
-    <Section id="education" title="Education">
-      <div className="space-y-8">
+    <Section id="education" title="Education" eyebrow="03 / Foundations" background="gray">
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {education.map((edu) => (
           <div
             key={edu.id}
-            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
+            className="sky-card rounded-3xl border border-[#dce7f1] bg-white p-6 sm:p-8"
           >
             <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
               <div className="flex-1">
-                <h3 className="text-xl font-semibold text-gray-900 mb-1">
+                <h3 className="mb-2 text-2xl font-bold tracking-tight text-[#102b4b]">
                   {edu.degree}
                 </h3>
-                <p className="text-lg text-blue-600 font-medium mb-1">
+                <p className="mb-1 text-lg font-medium text-[#b81868]">
                   {edu.institution}
                 </p>
                 {edu.subtitle && (

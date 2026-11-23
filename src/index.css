@@ -501,3 +501,300 @@
     animation: none;
   }
 }
+
+.theme-toggle {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #bfdbfe;
+  border-radius: 50%;
+  background: #fff;
+  color: #1d4ed8;
+  transition: color 200ms, border-color 200ms, background-color 200ms;
+}
+
+.theme-toggle:hover {
+  border-color: #93c5fd;
+  color: #d41470;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid #1d4ed8;
+  outline-offset: 3px;
+}
+
+.portfolio-dark {
+  color-scheme: dark;
+  background: #091426;
+  color: #edf4ff;
+}
+
+.portfolio-dark footer {
+  background: #0c192c;
+}
+
+.portfolio-dark #hero {
+  background: #0b172a;
+}
+
+.portfolio-dark .hero-sky {
+  display: none;
+}
+
+.portfolio-dark .hero-background {
+  background:
+    radial-gradient(ellipse at 15% 28%, rgba(59, 130, 246, 0.18), transparent 42%),
+    radial-gradient(ellipse at 85% 72%, rgba(212, 20, 112, 0.13), transparent 42%);
+}
+
+.portfolio-dark .hero-full-name .text-gradient {
+  background-image: linear-gradient(
+    90deg,
+    color-mix(in srgb, #93c5fd, #f9a8d4 calc(var(--letter-start, 0) * 100%)),
+    color-mix(in srgb, #93c5fd, #f9a8d4 calc(var(--letter-end, 1) * 100%))
+  );
+}
+
+.portfolio-dark .hero-portrait-image {
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+}
+
+.portfolio-dark .hero-eyebrow,
+.portfolio-dark .hero-summary,
+.portfolio-dark .hero-interactive-details {
+  color: #c5d5e9;
+}
+
+.portfolio-dark .hero-eyebrow-accent,
+.portfolio-dark .hero-eyebrow-divider,
+.portfolio-dark .hero-pin-icon {
+  color: #f9a8d4;
+}
+
+.portfolio-dark nav.bg-white\/90,
+.portfolio-dark nav .bg-white {
+  background: rgba(13, 27, 46, 0.96);
+}
+
+.portfolio-dark .nav-logo-text {
+  fill: #dbeafe;
+}
+
+.portfolio-dark .theme-toggle,
+.portfolio-dark .hero-button:not(.hero-button-primary):not(.hero-social-link) {
+  border-color: #4a678e;
+  background: #162a45;
+  color: #dbeafe;
+}
+
+.portfolio-dark .theme-toggle:hover,
+.portfolio-dark .hero-button:not(.hero-button-primary):not(.hero-social-link):hover {
+  border-color: #93c5fd;
+  background: #203b5e;
+}
+
+.portfolio-dark .hero-social .hero-social-link,
+.portfolio-dark #contact a[aria-label] {
+  color: #c7d9f4;
+}
+
+.portfolio-dark .hero-social .hero-social-link:hover,
+.portfolio-dark #contact a[aria-label]:hover {
+  color: #f9a8d4;
+}
+
+.portfolio-dark :is(.text-gray-900, .text-gray-800, [class~="text-[#102b4b]"]) {
+  color: #edf4ff;
+}
+
+.portfolio-dark .group:hover .project-title {
+  color: #f9a8d4;
+}
+
+.portfolio-dark :is(.text-gray-700, .text-gray-600, .text-gray-500, [class~="text-[#30445e]"], [class~="text-[#52677e]"], [class~="text-[#355a78]"]) {
+  color: #c1d0e3;
+}
+
+.portfolio-dark :is([class~="text-[#d41470]"], [class~="text-[#b81868]"]) {
+  color: #f9a8d4;
+}
+
+.portfolio-dark main > section:not([aria-label="Website experience"]) :is(.bg-white, [class~="bg-[#f7faff]"]) {
+  background-color: #182b44;
+}
+
+.portfolio-dark :is([class~="border-[#dce7f1]"], [class~="border-[#cbd9e9]"], [class~="border-[#cbdced]"], .border-gray-100, .border-blue-200) {
+  border-color: #36506e;
+}
+
+.portfolio-dark :is(.bg-blue-50, .bg-blue-100) {
+  background-color: #213d61;
+}
+
+.portfolio-dark .text-blue-800 {
+  color: #dbeafe;
+}
+
+.portfolio-dark .bg-gray-200 {
+  background-color: #36506e;
+}
+
+.portfolio-dark #contact :is(input, textarea) {
+  background: #0e1e33;
+  color: #edf4ff;
+}
+
+.portfolio-dark #contact :is(input, textarea)::placeholder {
+  color: #a7b8cc;
+}
+
+.portfolio-dark #contact a.group:hover {
+  border-color: #f9a8d4;
+}
+
+.portfolio-dark nav button:hover:not(.theme-toggle) {
+  color: #f9a8d4;
+}
+
+.portfolio-dark .theme-toggle:focus-visible,
+.portfolio-dark .hero-button:focus-visible {
+  outline-color: #93c5fd;
+}
+
+/* Sky treatments are decorative and stay behind the existing content. */
+.hero-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 12% 18%, rgba(147, 197, 253, 0.22), transparent 38%),
+    radial-gradient(ellipse at 85% 72%, rgba(244, 166, 215, 0.18), transparent 42%);
+}
+
+.sky-section {
+  background:
+    radial-gradient(ellipse 75% 40% at 5% 50%, rgba(147, 197, 253, 0.23), transparent),
+    radial-gradient(ellipse 75% 40% at 95% 50%, rgba(216, 180, 254, 0.18), transparent),
+    #f3f8ff;
+}
+
+.sky-heading {
+  border-image: linear-gradient(90deg, #91baff, #e99acb, transparent) 1;
+}
+
+.sky-card {
+  background-image: linear-gradient(135deg, rgba(222, 237, 255, 0.38), transparent 48%, rgba(248, 224, 245, 0.28));
+  box-shadow: 0 15px 40px -28px rgba(68, 109, 200, 0.55), 0 10px 32px -28px rgba(212, 20, 112, 0.4);
+}
+
+.sky-impact {
+  background:
+    radial-gradient(ellipse at 85% 65%, rgba(168, 85, 247, 0.2), transparent 40%),
+    radial-gradient(ellipse at 12% 0%, rgba(59, 130, 246, 0.25), transparent 40%),
+    #102b4b;
+}
+
+.sky-impact .text-7xl {
+  text-shadow: 0 0 30px rgba(244, 114, 182, 0.42);
+}
+
+.hero-button-primary {
+  background: linear-gradient(125deg, #2563eb, #4f46e5 60%, #9a298f);
+  box-shadow: 0 12px 26px -10px rgba(79, 70, 229, 0.55), 0 8px 24px -16px rgba(212, 20, 112, 0.5);
+}
+
+.portfolio-dark .hero-background {
+  background:
+    radial-gradient(ellipse at 15% 28%, rgba(59, 130, 246, 0.24), transparent 42%),
+    radial-gradient(ellipse at 85% 72%, rgba(212, 20, 112, 0.24), transparent 42%);
+}
+
+.portfolio-dark .hero-background::after {
+  background:
+    radial-gradient(ellipse at 22% 12%, rgba(105, 121, 255, 0.16), transparent 40%),
+    radial-gradient(ellipse at 85% 70%, rgba(245, 65, 165, 0.14), transparent 40%);
+}
+
+.portfolio-dark main > .sky-section,
+.portfolio-dark main > .sky-section:nth-of-type(even) {
+  background:
+    radial-gradient(1px 1px at 12% 18%, rgba(207, 225, 255, 0.65) 98%, transparent),
+    radial-gradient(1px 1px at 74% 44%, rgba(223, 201, 255, 0.55) 98%, transparent),
+    radial-gradient(1px 1px at 41% 79%, rgba(207, 225, 255, 0.45) 98%, transparent),
+    radial-gradient(ellipse 75% 40% at 8% 50%, rgba(63, 97, 205, 0.21), transparent),
+    radial-gradient(ellipse 75% 40% at 92% 50%, rgba(169, 50, 150, 0.17), transparent),
+    #0d1a31;
+  background-size: 239px 263px, 331px 281px, 283px 337px, auto, auto;
+}
+
+.portfolio-dark .sky-heading {
+  border-image: linear-gradient(90deg, #557ff0, #ef6eb3, transparent) 1;
+}
+
+.portfolio-dark .sky-card {
+  background-image: linear-gradient(135deg, rgba(74, 103, 205, 0.14), transparent 50%, rgba(192, 68, 151, 0.12));
+  box-shadow: 0 12px 40px -25px rgba(48, 113, 255, 0.5), 0 8px 35px -28px rgba(239, 83, 171, 0.55);
+}
+
+.portfolio-dark .hero-button-primary {
+  box-shadow: 0 8px 24px -10px rgba(98, 116, 255, 0.75), 0 8px 32px -14px rgba(234, 73, 176, 0.55);
+}
+
+@property --orbit-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.orbit-card {
+  position: relative;
+}
+
+.orbit-card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 2;
+  padding: 2px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: conic-gradient(from var(--orbit-angle), #60a5fa, #8b5cf6, #ec4899, #d41470, #60a5fa);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  transition: opacity 300ms ease;
+}
+
+.orbit-card:focus-within::after {
+  opacity: 1;
+  animation: orbit-border 5s linear infinite;
+}
+
+@media (hover: hover) {
+  .orbit-card:hover::after {
+    opacity: 1;
+    animation: orbit-border 5s linear infinite;
+  }
+}
+
+@keyframes orbit-border {
+  to {
+    --orbit-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-card::after {
+    animation: none !important;
+    transition: none;
+  }
+
+  .orbit-card:hover {
+    transform: none;
+  }
+}
