@@ -51,7 +51,7 @@ const Contact: React.FC = () => {
       label: "Email",
       value: personal.email,
       href: `mailto:${personal.email}`,
-      color: "text-red-600",
+      color: "text-[#d41470]",
     },
     {
       icon: (
@@ -72,7 +72,7 @@ const Contact: React.FC = () => {
       label: "Phone",
       value: personal.phone,
       href: `tel:${personal.phone}`,
-      color: "text-green-600",
+      color: "text-[#d41470]",
     },
     {
       icon: (
@@ -99,7 +99,7 @@ const Contact: React.FC = () => {
       label: "Location",
       value: personal.location,
       href: `https://maps.google.com/?q=${encodeURIComponent(personal.location)}`,
-      color: "text-blue-600",
+      color: "text-[#d41470]",
     },
   ];
 
@@ -155,13 +155,15 @@ const Contact: React.FC = () => {
       id="contact"
       title="Get In Touch"
       subtitle="I'm always interested in new opportunities and exciting projects"
+      eyebrow="05 / Say hello"
+      background="gray"
     >
-      <div className="max-w-6xl mx-auto">
+      <div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              <h3 className="mb-6 text-3xl font-bold tracking-tight text-[#102b4b] sm:text-4xl">
                 Let's Work Together
               </h3>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -178,7 +180,7 @@ const Contact: React.FC = () => {
                 <a
                   key={index}
                   href={method.href}
-                  className="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 group"
+                  className="group flex items-center rounded-2xl border border-[#dce7f1] bg-white p-4 transition-colors duration-200 hover:border-[#d41470]"
                   target={method.href.startsWith("http") ? "_blank" : undefined}
                   rel={
                     method.href.startsWith("http")
@@ -191,7 +193,7 @@ const Contact: React.FC = () => {
                   >
                     {method.icon}
                   </div>
-                  <div className="ml-4">
+                  <div className="ml-4 min-w-0 break-words">
                     <div className="text-sm font-medium text-gray-500">
                       {method.label}
                     </div>
@@ -230,7 +232,7 @@ const Contact: React.FC = () => {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-gray-100 rounded-full text-gray-600 hover:bg-primary-100 hover:text-primary-600 transition-all duration-200 hover:scale-110"
+                    className="rounded-xl p-3 text-[#0f2a52] transition-colors duration-200 hover:text-[#d41470] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#1d4ed8]"
                     aria-label={link.label}
                     title={link.label}
                   >
@@ -243,7 +245,7 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-gray-50 rounded-xl p-8">
+          <div className="rounded-3xl border border-[#dce7f1] bg-white p-6 shadow-[0_20px_60px_-40px_rgba(27,65,108,0.4)] sm:p-8">
             <h3 className="text-xl font-bold text-gray-900 mb-6">
               Send me a message
             </h3>
@@ -264,7 +266,7 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                    className="w-full rounded-lg border border-blue-200 px-4 py-2 transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
                     placeholder="Your full name"
                   />
                 </div>
@@ -283,7 +285,7 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                    className="w-full rounded-lg border border-blue-200 px-4 py-2 transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -303,7 +305,7 @@ const Contact: React.FC = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                  className="w-full rounded-lg border border-blue-200 px-4 py-2 transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
                   placeholder="What's this about?"
                 />
               </div>
@@ -322,12 +324,12 @@ const Contact: React.FC = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors resize-none"
+                  className="w-full resize-none rounded-lg border border-blue-200 px-4 py-2 transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
                   placeholder="Tell me about your project, idea, or just say hello!"
                 />
               </div>
 
-              <button type="submit" className="btn-primary w-full">
+              <button type="submit" className="hero-button hero-button-primary w-full">
                 Send Message
                 <svg
                   className="w-5 h-5 ml-2"

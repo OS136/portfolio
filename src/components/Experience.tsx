@@ -40,31 +40,24 @@ const Experience: React.FC = () => {
       id="experience"
       title="Work Experience"
       subtitle="My professional journey and the roles that shaped my expertise"
+      eyebrow="02 / The journey"
     >
-      <div className="max-w-4xl mx-auto">
+      <div>
         {experiences.length > 0 ? (
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-600 via-primary-400 to-primary-200"></div>
+          <div className="space-y-5">
 
-            {experiences.map((experience, index) => (
+            {experiences.map((experience) => (
               <div
                 key={experience.id}
-                className={`relative flex items-start mb-12 animate-slide-up ${
-                  index % 2 === 0 ? "animate-delay-200" : "animate-delay-400"
-                }`}
+                className="rounded-3xl border border-[#dce7f1] bg-[#f7faff] p-6 sm:p-9 lg:p-10"
               >
-                {/* Timeline dot */}
-                <div className="absolute left-6 w-4 h-4 bg-primary-600 rounded-full border-4 border-white shadow-lg z-10 mt-1"></div>
-
-                {/* Content */}
-                <div className="ml-20 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 w-full">
+                <div>
                   <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-1">
+                      <h3 className="mb-1 text-2xl font-bold tracking-tight text-[#102b4b] sm:text-3xl">
                         {experience.position}
                       </h3>
-                      <h4 className="text-lg text-primary-600 font-semibold mb-2">
+                      <h4 className="mb-2 text-lg font-semibold text-[#b81868]">
                         {experience.company}
                       </h4>
                     </div>
@@ -136,7 +129,7 @@ const Experience: React.FC = () => {
                         {experience.technologies.map((tech, idx) => (
                           <span
                             key={idx}
-                            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-800"
+                            className="inline-flex items-center rounded-full border border-[#cbdced] bg-white px-3 py-1 text-xs font-medium text-[#355a78]"
                           >
                             {tech}
                           </span>

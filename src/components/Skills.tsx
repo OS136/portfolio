@@ -32,16 +32,6 @@ const Skills: React.FC = () => {
     return levels[level as keyof typeof levels] || 0;
   };
 
-  const getSkillLevelColor = (level: string): string => {
-    const colors = {
-      beginner: "bg-yellow-400",
-      intermediate: "bg-blue-400",
-      advanced: "bg-green-400",
-      expert: "bg-purple-400",
-    };
-    return colors[level as keyof typeof colors] || "bg-gray-400";
-  };
-
   const getSkillIcon = (skill: Skill): string => {
     const icons: { [key: string]: string } = {
       React: "⚛️",
@@ -73,18 +63,20 @@ const Skills: React.FC = () => {
       id="skills"
       title="Skills & Technologies"
       subtitle="The tools and technologies I work with to bring ideas to life"
-      background="gray"
+      eyebrow="04 / Toolkit"
     >
       {/* Category Filter - Now Visible */}
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
+      <div className="mb-10 flex flex-wrap gap-2" role="group" aria-label="Filter skills">
         {categories.map((category) => (
           <button
             key={category.key}
+            type="button"
+            aria-pressed={selectedCategory === category.key}
             onClick={() => setSelectedCategory(category.key)}
-            className={`flex items-center px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ${
+            className={`hero-button px-4 text-sm ${
               selectedCategory === category.key
-                ? "bg-primary-600 text-white shadow-lg transform scale-105"
-                : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 hover:shadow-md"
+                ? "hero-button-primary"
+                : ""
             }`}
           >
             <span className="mr-2 text-lg">{category.icon}</span>
@@ -108,8 +100,7 @@ const Skills: React.FC = () => {
           {filteredSkills.map((skill, index) => (
             <div
               key={`${skill.name}-${index}`}
-              className={`bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-slide-up`}
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="rounded-3xl border border-[#dce7f1] bg-[#f7faff] p-6"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center">
@@ -117,15 +108,7 @@ const Skills: React.FC = () => {
                   <h3 className="font-semibold text-gray-900">{skill.name}</h3>
                 </div>
                 <span
-                  className={`px-2 py-1 rounded-full text-xs font-medium ${
-                    skill.level === "expert"
-                      ? "bg-purple-100 text-purple-800"
-                      : skill.level === "advanced"
-                        ? "bg-green-100 text-green-800"
-                        : skill.level === "intermediate"
-                          ? "bg-blue-100 text-blue-800"
-                          : "bg-yellow-100 text-yellow-800"
-                  }`}
+                  className="rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-800"
                 >
                   {skill.level}
                 </span>
@@ -141,7 +124,7 @@ const Skills: React.FC = () => {
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div
-                    className={`h-2 rounded-full ${getSkillLevelColor(skill.level)} transition-all duration-1000 ease-out`}
+                    className="h-2 rounded-full bg-gradient-to-r from-[#3b82f6] to-[#d41470] transition-all duration-1000 ease-out"
                     style={{ width: `${getSkillLevelWidth(skill.level)}%` }}
                   ></div>
                 </div>
@@ -197,7 +180,7 @@ const Skills: React.FC = () => {
           {selectedCategory !== "all" && (
             <button
               onClick={() => setSelectedCategory("all")}
-              className="text-primary-600 hover:text-primary-700 font-medium"
+              className="hero-button"
             >
               View all skills
             </button>

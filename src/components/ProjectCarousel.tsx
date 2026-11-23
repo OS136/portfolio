@@ -76,13 +76,13 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
   return (
     <div className="relative">
       {/* Carousel container */}
-      <div className="overflow-hidden rounded-xl">
+      <div className="overflow-hidden rounded-3xl">
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {items.map((item, index) => (
-            <div key={index} className="w-full flex-shrink-0 px-4">
+            <div key={index} className="w-full flex-shrink-0">
               {"repo" in item || "name" in item ? (
                 <ProjectCard repo={item as GitHubRepo} featured />
               ) : (
@@ -95,10 +95,10 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
 
       {/* Navigation arrows */}
       {totalItems > 1 && (
-        <>
+        <div className="mt-4 flex justify-end gap-2">
           <button
             onClick={goToPrevious}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full shadow-lg p-2 hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
+            className="hero-button w-[52px] px-0"
             aria-label="Previous project"
           >
             <svg
@@ -118,7 +118,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
 
           <button
             onClick={goToNext}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full shadow-lg p-2 hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
+            className="hero-button w-[52px] px-0"
             aria-label="Next project"
           >
             <svg
@@ -135,7 +135,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
               />
             </svg>
           </button>
-        </>
+        </div>
       )}
 
       {/* Dots indicator */}
@@ -145,10 +145,10 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-colors duration-200 ${
+              className={`w-3 h-3 rounded-full transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8] ${
                 index === currentIndex
-                  ? "bg-primary-600"
-                  : "bg-gray-300 hover:bg-gray-400"
+                  ? "bg-[#3b82f6]"
+                  : "bg-blue-200 hover:bg-[#d41470]"
               }`}
               aria-label={`Go to project ${index + 1}`}
             />
@@ -157,7 +157,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
       )}
 
       {/* Pause/play button for auto-play */}
-      {totalItems > 1 && (
+      {autoPlay && totalItems > 1 && (
         <div className="flex justify-center mt-4">
           <span className="text-sm text-gray-500 flex items-center">
             <svg

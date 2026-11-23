@@ -41,10 +41,11 @@ const Projects: React.FC = () => {
         id="projects"
         title="My Projects"
         subtitle="A showcase of my recent work and contributions"
+        eyebrow="01 / Selected work"
         background="gray"
       >
         <div className="text-center py-12">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-b-2 border-[#3b82f6]"></div>
           <p className="mt-4 text-gray-600">Loading projects...</p>
         </div>
       </Section>
@@ -56,13 +57,14 @@ const Projects: React.FC = () => {
       id="projects"
       title="My Projects"
       subtitle="A showcase of my recent work and open source contributions"
+      eyebrow="01 / Selected work"
       background="gray"
     >
       {/* Featured Projects Carousel */}
       {(portfolioData.projects.some((p) => p.featured) ||
         featuredRepos.length > 0) && (
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8 text-gray-900">
+          <h3 className="mb-6 text-sm font-semibold uppercase tracking-[0.12em] text-[#355a78]">
             Featured Work
           </h3>
           <ProjectCarousel
@@ -72,23 +74,29 @@ const Projects: React.FC = () => {
         </div>
       )}
 
-      {/* Project Categories Filter - HIDDEN */}
-      {false && portfolioData.projects.length > 0 && (
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
+      {portfolioData.projects.length > 0 && (
+        <div className="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filter projects">
           {categories.map((category) => (
             <button
               key={category.key}
+              type="button"
+              aria-pressed={selectedCategory === category.key}
               onClick={() => setSelectedCategory(category.key)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+              className={`hero-button px-4 text-sm ${
                 selectedCategory === category.key
-                  ? "bg-primary-600 text-white"
-                  : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
+                  ? "hero-button-primary"
+                  : ""
               }`}
             >
               {category.label}
             </button>
           ))}
         </div>
+      )}
+      {filteredProjects.length === 0 && selectedCategory !== "all" && (
+        <p className="mb-12 text-gray-600" role="status">
+          No projects found in the "{categories.find((c) => c.key === selectedCategory)?.label}" category.
+        </p>
       )}
 
       {/* Portfolio Projects Grid */}
@@ -118,7 +126,7 @@ const Projects: React.FC = () => {
             {repos.length > 6 && (
               <button
                 onClick={() => setShowAllRepos(!showAllRepos)}
-                className="text-primary-600 hover:text-primary-700 font-medium text-sm"
+                className="hero-button px-4 text-sm"
               >
                 {showAllRepos ? "Show Less" : "Show All"}
               </button>
@@ -134,7 +142,7 @@ const Projects: React.FC = () => {
       )}
 
       {/* Empty State */}
-      {filteredProjects.length === 0 &&
+      {selectedCategory === "all" && filteredProjects.length === 0 &&
         displayRepos.length === 0 &&
         !loading && (
           <div className="text-center py-12">
@@ -207,7 +215,7 @@ const Projects: React.FC = () => {
             href={`https://github.com/${GITHUB_USERNAME}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center btn-primary"
+            className="hero-button hero-button-primary max-w-full whitespace-normal text-center"
           >
             <svg
               className="w-5 h-5 mr-2"

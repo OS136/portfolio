@@ -32,59 +32,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     });
   };
 
-  const getTechBadgeColor = (tech: string) => {
-    const colors: { [key: string]: string } = {
-      TypeScript: "bg-blue-100 text-blue-800",
-      JavaScript: "bg-yellow-100 text-yellow-800",
-      React: "bg-cyan-100 text-cyan-800",
-      Vue: "bg-green-100 text-green-800",
-      Angular: "bg-red-100 text-red-800",
-      "Node.js": "bg-green-100 text-green-800",
-      Python: "bg-blue-100 text-blue-800",
-      Java: "bg-orange-100 text-orange-800",
-      "C#": "bg-purple-100 text-purple-800",
-      Go: "bg-cyan-100 text-cyan-800",
-      Rust: "bg-orange-100 text-orange-800",
-      HTML: "bg-orange-100 text-orange-800",
-      HTML5: "bg-orange-100 text-orange-800",
-      CSS: "bg-blue-100 text-blue-800",
-      CSS3: "bg-blue-100 text-blue-800",
-      "Tailwind CSS": "bg-teal-100 text-teal-800",
-      "ASP.NET": "bg-purple-100 text-purple-800",
-      "REST API": "bg-indigo-100 text-indigo-800",
-      "GitHub API": "bg-lime-100 text-lime-800",
-      SQLite: "bg-blue-100 text-blue-800",
-      PostgreSQL: "bg-blue-100 text-blue-800",
-      MongoDB: "bg-green-100 text-green-800",
-      Git: "bg-red-100 text-red-800",
-      Docker: "bg-blue-100 text-blue-800",
-      Figma: "bg-pink-100 text-pink-800",
-      Swift: "bg-orange-100 text-orange-800",
-      Kotlin: "bg-purple-100 text-purple-800",
-      Flutter: "bg-blue-100 text-blue-800",
-      "React Native": "bg-cyan-100 text-cyan-800",
-      "Express.js": "bg-gray-100 text-gray-800",
-      "Next.js": "bg-gray-900 text-white",
-      Vite: "bg-purple-100 text-purple-800",
-      RxJS: "bg-pink-100 text-pink-800",
-      Agile: "bg-amber-200 text-amber-700",
-      "Team Collaboration": "bg-rose-100 text-cyan-800",
-      Migrations: "bg-emerald-100 text-emerald-800",
-      Insomnia: "bg-orange-100 text-orange-800",
-      "ASP.NET Core": "bg-fuchsia-100 text-fuchsia-800",
-      Swagger: "bg-sky-100 text-sky-800",
-      "SQL Server": "bg-slate-200 text-slate-800",
-    };
-    return colors[tech] || "bg-gray-100 text-gray-800";
-  };
-
   return (
     <div
-      className={`card p-6 h-full flex flex-col ${featured ? "ring-2 ring-primary-500" : ""}`}
+      className={`group flex h-full flex-col overflow-hidden rounded-3xl border border-[#dce7f1] bg-white p-6 shadow-[0_12px_40px_-24px_rgba(27,65,108,0.3)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-24px_rgba(27,65,108,0.4)] sm:p-8 ${featured && project?.imageUrl && liveUrl ? "md:grid md:grid-cols-2 md:gap-x-10" : ""}`}
     >
       {featured && (
-        <div className="flex items-center mb-3">
-          <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-1 rounded-full">
+        <div className="mb-4 flex items-center md:col-span-2">
+          <span className="rounded-full bg-[#fce7f2] px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#a5125c]">
             Featured
           </span>
         </div>
@@ -94,9 +48,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           href={liveUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="block mb-4"
+          className="mb-6 block md:row-span-2 md:mb-0"
         >
-          <div className="w-full h-48 sm:h-56 overflow-hidden rounded-lg bg-gray-100 flex items-center justify-center">
+          <div className="flex h-48 w-full items-center justify-center overflow-hidden rounded-2xl bg-[#edf4fc] sm:h-56 md:h-full md:min-h-[16rem]">
             <img
               src={`${process.env.PUBLIC_URL}/${project.imageUrl}`}
               alt={`${title} preview`}
@@ -107,7 +61,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       )}
       <div className="flex-1">
         <div className="flex items-start justify-between mb-3">
-          <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
+          <h3 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#1d4ed8]">
             {title}
           </h3>
 
@@ -145,14 +99,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           )}
         </div>
 
-        <p className="text-gray-600 mb-4 line-clamp-3">{description}</p>
+        <p className="text-gray-600 mb-4">{description}</p>
 
         {/* Technologies */}
         <div className="flex flex-wrap gap-2 mb-4">
           {technologies.map((tech, index) => (
             <span
               key={index}
-              className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${getTechBadgeColor(tech)}`}
+              className="inline-flex items-center rounded-full border border-blue-100 bg-blue-50 px-2.5 py-1 text-xs font-medium text-blue-800"
             >
               {tech}
             </span>
@@ -160,7 +114,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {topics.map((topic, index) => (
             <span
               key={`topic-${index}`}
-              className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600"
+              className="inline-flex items-center rounded-full border border-blue-100 bg-blue-50 px-2.5 py-1 text-xs font-medium text-blue-800"
             >
               {topic}
             </span>
@@ -175,13 +129,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       </div>
 
       {/* Actions */}
-      <div className="flex space-x-3 pt-4 border-t border-gray-100">
+      <div className={`flex flex-wrap items-start gap-3 border-t border-gray-100 pt-4 ${featured && project?.imageUrl && liveUrl ? "md:self-end" : ""}`}>
         {githubUrl && (
           <a
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 inline-flex items-center justify-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+            className="hero-button h-[52px] min-w-[9rem] flex-1 px-4 text-sm"
           >
             <svg
               className="w-4 h-4 mr-2"
@@ -203,7 +157,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 btn-primary text-sm"
+            className="hero-button hero-button-primary h-[52px] min-w-[9rem] flex-1 px-4 text-sm"
           >
             <svg
               className="w-4 h-4 mr-2"
