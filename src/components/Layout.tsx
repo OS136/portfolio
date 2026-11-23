@@ -8,10 +8,10 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     try {
-      return localStorage.getItem("portfolio-theme") === "dark" ? "dark" : "light";
+      return localStorage.getItem("portfolio-theme") === "light" ? "light" : "dark";
     } catch (error) {
       console.warn("Unable to read the saved theme preference.", error);
-      return "light";
+      return "dark";
     }
   });
 

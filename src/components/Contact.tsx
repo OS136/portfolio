@@ -245,7 +245,7 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="rounded-3xl border border-[#dce7f1] bg-white p-6 shadow-[0_20px_60px_-40px_rgba(27,65,108,0.4)] sm:p-8">
+          <div className="sky-card rounded-3xl border border-[#dce7f1] bg-white p-6 shadow-[0_20px_60px_-40px_rgba(27,65,108,0.4)] sm:p-8">
             <h3 className="text-xl font-bold text-gray-900 mb-6">
               Send me a message
             </h3>

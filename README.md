@@ -9,8 +9,9 @@ Visit the live site: [https://os136.github.io/portfolio](https://your-username.g
 ## ✨ Features
 
 - **Responsive Design**: Looks great on all devices and screen sizes
+- **Light and Dark Mode**: Dark mode is the default; switch themes using the navigation toggle and the selection is saved in browser storage
 - **GitHub Integration**: Automatically showcases your repositories with live data
-- **Interactive Sections**: Smooth animations and hover effects
+- **Interactive Sections**: Smooth sky transitions and animated gradient borders on project and experience cards, with reduced-motion support
 - **Hero Sky**: A lightweight animated WebGL sky behind the interactive particle network, with a static fallback and reduced-motion support
 - **Liquid Glass**: Glass-style hero buttons using `@zakisheriff/liquid-glass`
 - **Project Carousel**: Featured projects with slideshow functionality

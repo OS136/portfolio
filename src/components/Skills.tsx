@@ -100,7 +100,7 @@ const Skills: React.FC = () => {
           {filteredSkills.map((skill, index) => (
             <div
               key={`${skill.name}-${index}`}
-              className="rounded-3xl border border-[#dce7f1] bg-[#f7faff] p-6"
+              className="sky-card rounded-3xl border border-[#dce7f1] bg-[#f7faff] p-6"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center">

@@ -22,12 +22,12 @@ const Section: React.FC<SectionProps> = ({
   return (
     <section
       id={id}
-      className={`scroll-mt-20 px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32 ${
+      className={`sky-section scroll-mt-20 px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32 ${
         background === "gray" ? "bg-gradient-to-br from-gray-50 to-gray-100" : "bg-gray-50"
       } ${className}`}
     >
       <div className="container-width">
-        <div className="mb-12 border-t border-[#cbd9e9] pt-6 sm:mb-16">
+        <div className="sky-heading mb-12 border-t border-[#cbd9e9] pt-6 sm:mb-16">
           {eyebrow && (
             <p className="mb-5 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-[#d41470]">
               {eyebrow}

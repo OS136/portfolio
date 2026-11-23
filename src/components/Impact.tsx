@@ -1,7 +1,7 @@
 import React from "react";
 
 const Impact: React.FC = () => (
-  <section aria-label="Website experience" className="overflow-hidden bg-[#102b4b] px-4 py-16 text-white sm:px-6 sm:py-20 lg:px-8">
+  <section aria-label="Website experience" className="sky-impact overflow-hidden bg-[#102b4b] px-4 py-16 text-white sm:px-6 sm:py-20 lg:px-8">
     <div className="container-width grid items-end gap-8 md:grid-cols-[1fr_auto]">
       <div>
         <p className="mb-5 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-[#f9a8d4]">

@@ -20,7 +20,7 @@ const Education: React.FC = () => {
         {education.map((edu) => (
           <div
             key={edu.id}
-            className="rounded-3xl border border-[#dce7f1] bg-white p-6 sm:p-8"
+            className="sky-card rounded-3xl border border-[#dce7f1] bg-white p-6 sm:p-8"
           >
             <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
               <div className="flex-1">

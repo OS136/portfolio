@@ -34,7 +34,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <div
-      className={`group flex h-full flex-col overflow-hidden rounded-3xl border border-[#dce7f1] bg-white p-6 shadow-[0_12px_40px_-24px_rgba(27,65,108,0.3)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-24px_rgba(27,65,108,0.4)] sm:p-8 ${featured && project?.imageUrl && liveUrl ? "md:grid md:grid-cols-2 md:gap-x-10" : ""}`}
+      className={`sky-card orbit-card group flex h-full flex-col overflow-hidden rounded-3xl border border-[#dce7f1] bg-white p-6 shadow-[0_12px_40px_-24px_rgba(27,65,108,0.3)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-24px_rgba(27,65,108,0.4)] sm:p-8 ${featured && project?.imageUrl && liveUrl ? "md:grid md:grid-cols-2 md:gap-x-10" : ""}`}
     >
       {featured && (
         <div className="mb-4 flex items-center md:col-span-2">
@@ -61,7 +61,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       )}
       <div className="flex-1">
         <div className="flex items-start justify-between mb-3">
-          <h3 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#1d4ed8]">
+          <h3 className="project-title text-xl font-bold text-gray-900 transition-colors group-hover:text-[#a5125c]">
             {title}
           </h3>
 

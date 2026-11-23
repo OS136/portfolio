@@ -49,7 +49,7 @@ const Experience: React.FC = () => {
             {experiences.map((experience) => (
               <div
                 key={experience.id}
-                className="rounded-3xl border border-[#dce7f1] bg-[#f7faff] p-6 sm:p-9 lg:p-10"
+                className="sky-card orbit-card rounded-3xl border border-[#dce7f1] bg-[#f7faff] p-6 sm:p-9 lg:p-10"
               >
                 <div>
                   <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
