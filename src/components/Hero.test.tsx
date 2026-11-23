@@ -76,17 +76,20 @@ describe("hero interactive text", () => {
     expect(link.getAttribute("download")).toBe("Olena_Shereiko_Full_Stack_Developer_CV.pdf");
   });
 
-  it("shows the supplied portrait alongside the introduction", () => {
+  it("layers the supplied portrait with the oversized introduction", () => {
     const { container } = render(<Hero />);
     const image = screen.getByRole("img", { name: "Olena Shereiko sitting with a laptop" });
     expect(image.getAttribute("src")).toBe(`${process.env.PUBLIC_URL || ""}/olena-shereiko-portrait-refined.png`);
     expect(image.parentElement?.classList.contains("hero-portrait")).toBe(true);
+    expect(image.closest(".hero-copy")).toBe(screen.getByRole("heading", { level: 1 }).closest(".hero-copy"));
+    expect(container.querySelector(".hero-body .hero-summary")).not.toBeNull();
     expect(container.querySelector(".hero-portrait-frame")).toBeNull();
   });
 
   it("keeps the full name grouped in the heading", () => {
     render(<Hero />);
     const heading = screen.getByRole("heading", { level: 1 });
+    expect(heading.textContent).toContain("Hi, my name is");
     const name = heading.querySelector(".hero-full-name");
     expect(name?.querySelector(".sr-only")?.textContent).toBe(portfolioData.personal.name);
     expect(name?.querySelectorAll(".hero-interactive-word")).toHaveLength(2);
@@ -186,10 +189,10 @@ describe("hero interactive text", () => {
       expect(block?.classList.contains("animate-slide-up")).toBe(false);
     });
 
-    const headingLetters = screen.getByRole("heading", { level: 1 })
-      .querySelectorAll<HTMLElement>(".hero-interactive-letter-slot");
+    const firstNameLetter = screen.getByRole("heading", { level: 1 })
+      .querySelector<HTMLElement>(".hero-full-name .hero-interactive-letter-slot");
     const greetingDelay = 400 + portfolioData.personal.title.length * 25 + 150;
-    expect(headingLetters[6].style.animationDelay).toBe(`${greetingDelay + 200}ms`);
+    expect(firstNameLetter?.style.animationDelay).toBe(`${greetingDelay + "Hi, my name is ".length * 25}ms`);
 
     for (let index = 1; index < blocks.length; index++) {
       const previous = blocks[index - 1]?.querySelectorAll<HTMLElement>(".hero-typing-letter, .hero-sweep-reveal");

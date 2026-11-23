@@ -82,15 +82,30 @@
   }
 
   .hero-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    align-items: center;
-    gap: 3rem;
     width: 100%;
     padding-bottom: 6rem;
   }
 
   .hero-copy {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr;
+    align-items: start;
+    min-width: 0;
+  }
+
+  .hero-eyebrow,
+  .hero-name,
+  .hero-portrait,
+  .hero-body {
+    grid-column: 1;
+  }
+
+  .hero-body {
+    grid-row: 3;
+    align-self: start;
+    position: relative;
+    z-index: 2;
     min-width: 0;
   }
 
@@ -117,9 +132,13 @@
   }
 
   .hero-name {
-    font-size: clamp(2.5rem, 7vw, 4.5rem);
-    letter-spacing: -0.05em;
-    line-height: 1.08;
+    grid-row: 2;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 2rem;
+    font-size: 9vw;
+    letter-spacing: -0.06em;
+    line-height: 0.98;
   }
 
   .hero-full-name .text-gradient {
@@ -131,9 +150,7 @@
   }
 
   .hero-full-name {
-    display: inline-block;
-    white-space: nowrap;
-    font-size: min(1em, 9.5vw);
+    display: block;
   }
 
   @supports (background-clip: text) or (-webkit-background-clip: text) {
@@ -151,6 +168,8 @@
   }
 
   .hero-interactive-details {
+    flex-wrap: wrap;
+    gap: 1.5rem;
     padding: 0;
     list-style: none;
     font-size: 1.0625rem;
@@ -180,11 +199,14 @@
   }
 
   .hero-portrait {
-    margin: 0;
+    grid-row: 2 / span 2;
+    margin: -3rem -9% 0 0;
     position: relative;
     isolation: isolate;
-    width: min(100%, 30rem);
-    justify-self: center;
+    z-index: 1;
+    width: min(56%, 45rem);
+    justify-self: end;
+    pointer-events: none;
   }
 
   .hero-portrait::before {
@@ -215,19 +237,50 @@
   }
 
   @media (min-width: 1024px) {
-    .hero-layout {
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-      gap: 4rem;
-    }
-
     .hero-name {
-      font-size: clamp(4rem, 5.3vw, 5.25rem);
+      font-size: clamp(6rem, 8.8vw, 7.9rem);
     }
 
     .hero-portrait {
-      justify-self: end;
+      width: min(56%, 45rem);
     }
 
+    .hero-body {
+      width: min(44%, 36rem);
+    }
+
+    .hero-body .hero-actions {
+      grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .hero-copy {
+      grid-template-rows: auto auto auto;
+    }
+
+    .hero-body {
+      display: contents;
+    }
+
+    .hero-summary {
+      grid-row: 3;
+      grid-column: 1;
+      align-self: start;
+      position: relative;
+      z-index: 2;
+      width: 46%;
+      font-size: 3.3vw;
+      line-height: 1.55;
+    }
+
+    .hero-interactive-details {
+      flex-wrap: nowrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      font-size: 3.3vw;
+      white-space: nowrap;
+    }
   }
 
   .nav-logo {
