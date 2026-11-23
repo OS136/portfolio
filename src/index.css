@@ -283,6 +283,20 @@
     }
   }
 
+  @media (max-width: 639px) {
+    .hero-copy {
+      position: relative;
+    }
+
+    .hero-portrait {
+      position: absolute;
+      grid-row: 3 / 4;
+      right: -3%;
+      bottom: 2.5rem;
+      margin: 0;
+    }
+  }
+
   .nav-logo {
     display: block;
   }
