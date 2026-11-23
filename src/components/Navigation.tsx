@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { portfolioData } from "../data/content";
 
-const Navigation: React.FC = () => {
+interface NavigationProps {
+  theme: "light" | "dark";
+  onToggleTheme: () => void;
+}
+
+const Navigation: React.FC<NavigationProps> = ({ theme, onToggleTheme }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -73,6 +78,24 @@ const Navigation: React.FC = () => {
             </div>
           </div>
 
+          <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={onToggleTheme}
+            className="theme-toggle"
+            aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+            title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+          >
+            {theme === "light" ? (
+              <svg aria-hidden="true" className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z" />
+              </svg>
+            ) : (
+              <svg aria-hidden="true" className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v2m0 14v2M3 12h2m14 0h2M5.64 5.64l1.42 1.42m9.88 9.88 1.42 1.42m0-12.72-1.42 1.42M7.06 16.94l-1.42 1.42M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" />
+              </svg>
+            )}
+          </button>
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
@@ -113,6 +136,7 @@ const Navigation: React.FC = () => {
                 </svg>
               )}
             </button>
+          </div>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import Navigation from "./Navigation";
 import { portfolioData } from "../data/content";
 
 it("uses the rotating phrase as an accessible link back to the hero", () => {
-  render(<Navigation />);
+  render(<Navigation theme="light" onToggleTheme={jest.fn()} />);
   const hero = document.createElement("section");
   hero.id = "hero";
   hero.scrollIntoView = jest.fn();
