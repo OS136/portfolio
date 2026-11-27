@@ -6,6 +6,10 @@ const Experience: React.FC = () => {
   const { experiences } = portfolioData;
 
   const formatDate = (dateString: string) => {
+    if (/^\d{4}$/.test(dateString)) {
+      return dateString;
+    }
+
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", {
       year: "numeric",
@@ -14,6 +18,10 @@ const Experience: React.FC = () => {
   };
 
   const calculateDuration = (startDate: string, endDate: string | null) => {
+    if (/^\d{4}$/.test(startDate) || (endDate && /^\d{4}$/.test(endDate))) {
+      return null;
+    }
+
     const start = new Date(startDate);
     const end = endDate ? new Date(endDate) : new Date();
 
@@ -69,34 +77,41 @@ const Experience: React.FC = () => {
                           ? formatDate(experience.endDate)
                           : "Present"}
                       </span>
-                      <span className="text-gray-500">
-                        {calculateDuration(
-                          experience.startDate,
-                          experience.endDate,
-                        )}
-                      </span>
-                      <span className="text-gray-500 flex items-center lg:justify-end mt-1">
-                        <svg
-                          className="w-4 h-4 mr-1"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                          />
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                          />
-                        </svg>
-                        {experience.location}
-                      </span>
+                      {calculateDuration(
+                        experience.startDate,
+                        experience.endDate,
+                      ) && (
+                        <span className="text-gray-500">
+                          {calculateDuration(
+                            experience.startDate,
+                            experience.endDate,
+                          )}
+                        </span>
+                      )}
+                      {experience.location && (
+                        <span className="text-gray-500 flex items-center lg:justify-end mt-1">
+                          <svg
+                            className="w-4 h-4 mr-1"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                            />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                            />
+                          </svg>
+                          {experience.location}
+                        </span>
+                      )}
                     </div>
                   </div>
 
@@ -109,15 +124,17 @@ const Experience: React.FC = () => {
                   )}
 
                   {/* Description */}
-                  <div className="mb-6">
-                    <ul className="list-disc pl-6 space-y-3 text-gray-700 marker:text-gray-500">
-                      {experience.description.map((item, idx) => (
-                        <li key={idx} className="leading-relaxed">
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {experience.description.length > 0 && (
+                    <div className="mb-6">
+                      <ul className="list-disc pl-6 space-y-3 text-gray-700 marker:text-gray-500">
+                        {experience.description.map((item, idx) => (
+                          <li key={idx} className="leading-relaxed">
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
                   {/* Technologies */}
                   {experience.technologies.length > 0 && (

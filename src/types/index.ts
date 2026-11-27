@@ -18,7 +18,7 @@ export interface Experience {
   endDate: string | null; // null indicates current position
   description: string[];
   technologies: string[];
-  location: string;
+  location?: string;
 }
 
 export interface Education {
