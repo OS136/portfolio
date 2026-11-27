@@ -55,6 +55,32 @@ export const portfolioData: ContentData = {
       technologies: ["CMS", "HTML", "CSS", "Web Content Management"],
       location: "Stockholm, Sweden",
     },
+    {
+      id: "exp-3",
+      company: "Idea bank",
+      position: "Banking Operations Specialist, Personal Banking",
+      startDate: "2013",
+      endDate: "2015",
+      description: [
+        "Supported personal banking customers with everyday banking requests and account-related services.",
+        "Processed customer requests and documentation accurately, following bank procedures.",
+        "Responded to customer inquiries and referred more complex cases to the appropriate teams.",
+      ],
+      technologies: [],
+    },
+    {
+      id: "exp-4",
+      company: "Platinum bank",
+      position: "Credit Specialist",
+      startDate: "2011",
+      endDate: "2013",
+      description: [
+        "Reviewed credit applications and customer financial information.",
+        "Supported credit assessments in line with the bank's lending procedures.",
+        "Helped customers with questions about credit applications and requirements.",
+      ],
+      technologies: [],
+    },
   ],
 
   education: [

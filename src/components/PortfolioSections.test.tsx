@@ -1,6 +1,7 @@
 import React from "react";
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import Contact from "./Contact";
+import Experience from "./Experience";
 import Impact from "./Impact";
 import Projects from "./Projects";
 import Skills from "./Skills";
@@ -24,6 +25,17 @@ it("highlights the number of websites created", () => {
   const highlight = screen.getByRole("region", { name: "Website experience" });
   expect(highlight.textContent).toContain("50+");
   expect(highlight.textContent).toContain("websites created");
+});
+
+it("shows bank experience with year-only dates from the CV", () => {
+  render(<Experience />);
+
+  expect(screen.getByText("Banking Operations Specialist, Personal Banking")).toBeTruthy();
+  expect(screen.getByText("Idea bank")).toBeTruthy();
+  expect(screen.getByText("Credit Specialist")).toBeTruthy();
+  expect(screen.getByText("Platinum bank")).toBeTruthy();
+  expect(screen.getByText("2013 - 2015")).toBeTruthy();
+  expect(screen.getByText("2011 - 2013")).toBeTruthy();
 });
 
 it("keeps project links and filters working", () => {
